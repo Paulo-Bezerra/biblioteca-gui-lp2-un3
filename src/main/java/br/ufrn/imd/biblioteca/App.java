@@ -1,5 +1,6 @@
 package br.ufrn.imd.biblioteca;
 
+import br.ufrn.imd.biblioteca.dao.BancoDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +17,7 @@ public class App extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    scene = new Scene(loadFXML("login"));
+    scene = new Scene(carregarFXML("login"));
     stage.setMinWidth(280);
     stage.setMinHeight(390);
     stage.setTitle("Biblioteca");
@@ -26,10 +27,10 @@ public class App extends Application {
   }
 
   public static void trocarTela(String fxml) throws IOException {
-    scene.setRoot(loadFXML(fxml));
+    scene.setRoot(carregarFXML(fxml));
   }
 
-  private static Parent loadFXML(String fxml) throws IOException {
+  private static Parent carregarFXML(String fxml) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/" + fxml + ".fxml"));
     return fxmlLoader.load();
   }
