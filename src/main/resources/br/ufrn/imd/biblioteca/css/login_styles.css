@@ -1,0 +1,43 @@
+.root {
+  -fx-background-image: url('../images/login/login_background-1920x1080.jpg');
+  -fx-background-size: cover;
+  -fx-background-position: center center;
+}
+
+.vbox {
+  -fx-background-color: white;
+  -fx-background-radius: 16;
+}
+
+.text-field, .password-field {
+  -fx-background-color: transparent; /* Remove o fundo padrão */
+  -fx-border-color: transparent transparent black transparent; /* Borda apenas na parte inferior */
+  -fx-border-width: 0 0 1 0; /* Define a espessura da borda inferior */
+  -fx-padding: 4 4 2 2; /* Ajusta o preenchimento para dar espaço para a borda */
+}
+
+.text-field:focused, .password-field:focused {
+  -fx-border-color: transparent transparent #0088ff transparent; /* Muda a cor da borda inferior ao focar */
+}
+
+.button {
+  -fx-background-color: #fff;
+  -fx-text-fill: #45a049;
+  -fx-border-color: #45a049;
+  -fx-border-radius: 4;
+  -fx-background-radius: 4;
+  -fx-padding: 10px;
+  -fx-border-width: 2;
+}
+
+.button:hover, .button:focused {
+  -fx-background-color: #4CAF50;
+  -fx-text-fill: white;
+  -fx-border-color: #4CAF50;
+}
+
+.button:pressed, .button:disabled {
+  -fx-background-color: #218526;
+  -fx-border-color: #218526;
+  -fx-text-fill: white;
+}
