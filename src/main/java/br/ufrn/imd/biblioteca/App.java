@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class App extends Application {
   @SuppressWarnings("exports")
@@ -17,7 +18,7 @@ public class App extends Application {
     stage.setMinWidth(280);
     stage.setMinHeight(390);
     stage.setTitle("Biblioteca");
-    stage.getIcons().add(new Image(getClass().getResourceAsStream("images/App-256.png")));
+    stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/App-256.png"))));
     stage.setScene(scene);
     stage.show();
   }
