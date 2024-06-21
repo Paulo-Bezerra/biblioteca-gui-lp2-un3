@@ -31,6 +31,11 @@
         </Label>
         <VBox alignment="CENTER_LEFT" prefHeight="290.0" prefWidth="300.0" style="-fx-background-color: transparent;">
           <children>
+                  <HBox alignment="CENTER" fillHeight="false">
+                     <children>
+                        <Label fx:id="lbInvalida" alignment="CENTER" text="Credenciais inválidas." textFill="#eb0537" visible="false" />
+                     </children>
+                  </HBox>
             <Label text="Login:">
               <font>
                 <Font size="18.0" />
@@ -39,7 +44,7 @@
                 <Insets bottom="5.0" left="20.0" />
               </VBox.margin>
             </Label>
-            <TextField styleClass="text-field" text="admin">
+            <TextField fx:id="tfLogin" styleClass="text-field" text="admin">
               <VBox.margin>
                 <Insets left="20.0" right="20.0" />
               </VBox.margin>
@@ -58,7 +63,7 @@
                 <Insets bottom="5.0" left="20.0" top="20.0" />
               </VBox.margin>
             </Label>
-            <PasswordField text="admin123">
+            <PasswordField fx:id="pfSenha" text="admin123">
               <VBox.margin>
                 <Insets left="20.0" right="20.0" />
               </VBox.margin>
@@ -71,7 +76,7 @@
             </PasswordField>
             <HBox alignment="CENTER_RIGHT" fillHeight="false">
               <children>
-                <Button alignment="CENTER" mnemonicParsing="false" text="ENTRAR">
+                <Button fx:id="btEntrar" alignment="CENTER" mnemonicParsing="false" onAction="#autenticar" text="ENTRAR">
                   <HBox.margin>
                     <Insets right="20.0" top="20.0" />
                   </HBox.margin>
