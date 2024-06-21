@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 
 public class App extends Application {
@@ -15,7 +14,7 @@ public class App extends Application {
     Scene scene = new Scene(fxmlLoader.load());
     stage.setMinWidth(280);
     stage.setMinHeight(390);
-    stage.setTitle("Hello!");
+    stage.setTitle("Biblioteca");
     stage.setScene(scene);
     stage.show();
   }
