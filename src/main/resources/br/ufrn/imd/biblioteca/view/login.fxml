@@ -24,7 +24,7 @@
             <Insets bottom="10.0" top="20.0" />
           </VBox.margin>
         </ImageView>
-        <Label styleClass="title" text="Login Bibliotecário">
+        <Label styleClass="title" text="Biblioteca do IMD">
           <font>
             <Font size="24.0" />
           </font>

@@ -24,14 +24,12 @@ public class loginController {
 
   @FXML
   private void autenticar() throws IOException {
-    btEntrar.setDisable(true);
     lbInvalida.setVisible(false);
     if (tfLogin.getText().equals("admin") && pfSenha.getText().equals("admin123")) {
-      App.trocarTela("hello");
+      App.trocarTela("principal");
     } else {
       lbInvalida.setVisible(true);
     }
-    btEntrar.setDisable(false);
   }
 
 }
