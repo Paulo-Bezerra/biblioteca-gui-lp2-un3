@@ -18,7 +18,7 @@ public class App extends Application {
   @Override
   public void start(Stage stage) throws IOException {
     scene = new Scene(carregarFXML("login"));
-    stage.setMinWidth(280);
+    stage.setMinWidth(380);
     stage.setMinHeight(390);
     stage.setTitle("Biblioteca do IMD");
     stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/App-256.png"))));
