@@ -51,7 +51,7 @@
             <Label text="Usuários" />
             <HBox maxWidth="400.0">
                <children>
-                  <Button mnemonicParsing="false" text="CADASTRAR" />
+                  <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="CADASTRAR" />
                </children>
             </HBox>
             <HBox maxWidth="400.0" minWidth="220.0">

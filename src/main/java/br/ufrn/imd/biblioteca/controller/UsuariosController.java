@@ -7,6 +7,10 @@ import javafx.fxml.FXML;
 
 public class UsuariosController {
   @FXML
+  private void cadastrarUsuario() throws IOException {
+    App.trocarTela("cadastrar-usuario");
+  }
+  @FXML
   private void inicio() throws IOException {
     App.trocarTela("inicio");
   }
