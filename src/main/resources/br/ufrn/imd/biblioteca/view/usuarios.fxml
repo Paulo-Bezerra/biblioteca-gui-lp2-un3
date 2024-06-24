@@ -56,18 +56,19 @@
             </HBox>
             <HBox maxWidth="400.0" minWidth="220.0">
                <children>
-                  <TextField minHeight="25.0" minWidth="160.0" promptText="Digite o nome do usuário." HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Digite o nome do usuário." HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </TextField>
-                  <Button minWidth="60.0" mnemonicParsing="false" text="BUSCAR" />
+                  <Button minWidth="60.0" mnemonicParsing="false" onAction="#buscarUsuario" text="BUSCAR" />
                </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </HBox>
-            <ListView maxHeight="300.0" maxWidth="400.0" />
+            <Button mnemonicParsing="false" onAction="#listarUsarios" text="LISTAR TODOS" />
+            <ListView fx:id="lvUsuarios" maxHeight="300.0" maxWidth="400.0" />
             <HBox maxWidth="400.0">
                <children>
                   <Button disable="true" mnemonicParsing="false" text="ANTERIOR" />
