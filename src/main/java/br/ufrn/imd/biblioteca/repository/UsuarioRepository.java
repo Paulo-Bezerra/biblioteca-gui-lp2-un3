@@ -7,7 +7,6 @@ import br.ufrn.imd.biblioteca.model.Bibliotecario;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
