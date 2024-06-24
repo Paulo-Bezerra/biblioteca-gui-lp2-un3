@@ -1,5 +1,7 @@
 package br.ufrn.imd.biblioteca.model;
 
+import eu.hansolo.tilesfx.tools.PrettyListView;
+
 import java.time.LocalDate;
 
 public class Estudante extends Usuario {
@@ -21,5 +23,14 @@ public class Estudante extends Usuario {
 
   public void setCurso(String curso) {
     this.curso = curso;
+  }
+
+  @Override
+  public boolean validar() {
+    return validarUsuario() && validarCurso();
+  }
+
+  private boolean validarCurso() {
+    return curso != null && !curso.isEmpty();
   }
 }

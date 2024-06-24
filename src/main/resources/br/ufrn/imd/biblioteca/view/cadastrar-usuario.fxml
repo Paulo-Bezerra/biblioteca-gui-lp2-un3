@@ -27,10 +27,12 @@
             <Label text="Cadastro de usuário" />
             <Label text="Nome:" />
             <TextField fx:id="tfNome" promptText="João Silva" />
-            <Label text="CPF:" />
+            <Label text="CPF (Apenas números):" />
             <TextField fx:id="tfCPF" promptText="12312312345" />
+            <Label layoutX="10.0" layoutY="69.0" text="Matrícula (Apenas números):" />
+            <TextField fx:id="tfMatricula" layoutX="10.0" layoutY="86.0" promptText="202410001" />
             <Label text="Data de nascimento:" />
-            <DatePicker promptText="26/07/2000" />
+            <DatePicker fx:id="dtNascimento" editable="false" promptText="26/07/2000" />
             <HBox>
                <children>
                   <RadioButton fx:id="rbEstudante" mnemonicParsing="false" selected="true" text="Estudante">
@@ -47,24 +49,24 @@
                   <VBox fx:id="ctEstudante">
                      <children>
                         <Label text="Curso:" />
-                        <TextField promptText="Tecnologia da Informação" />
-                        <Button mnemonicParsing="false" text="CADASTRAR ESTUDANTE" />
+                        <TextField fx:id="tfCurso" promptText="Tecnologia da Informação" />
+                        <Button mnemonicParsing="false" onAction="#cadastraEstudante" text="CADASTRAR ESTUDANTE" />
                      </children>
                   </VBox>
                   <VBox fx:id="ctProfessor" visible="false">
                      <children>
                         <Label text="Departamento:" />
-                        <TextField promptText="Matemática" />
-                        <Button mnemonicParsing="false" text="CADASTRAR PROFESSOR" />
+                        <TextField fx:id="tfDepartamento" promptText="Matemática" />
+                        <Button mnemonicParsing="false" onAction="#cadastrarProfessor" text="CADASTRAR PROFESSOR" />
                      </children>
                   </VBox>
                   <VBox fx:id="ctBibliotecario" visible="false">
                      <children>
                         <Label text="Login:" />
-                        <TextField promptText="joaosilva" />
+                        <TextField fx:id="tfLogin" promptText="joaosilva" />
                         <Label text="Senha:" />
-                        <PasswordField promptText="••••••••" />
-                        <Button mnemonicParsing="false" text="CADASTRAR BIBLIOTECÁRIO" />
+                        <PasswordField fx:id="pfSenha" promptText="••••••••" />
+                        <Button mnemonicParsing="false" onAction="#cadastrarBiblitecario" text="CADASTRAR BIBLIOTECÁRIO" />
                      </children>
                   </VBox>
                </children>

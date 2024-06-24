@@ -1,6 +1,5 @@
 package br.ufrn.imd.biblioteca;
 
-import br.ufrn.imd.biblioteca.dao.BancoDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

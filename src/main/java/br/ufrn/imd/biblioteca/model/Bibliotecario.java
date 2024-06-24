@@ -34,4 +34,17 @@ public class Bibliotecario extends Usuario {
   public void setSenha(String senha) {
     this.senha = senha;
   }
+
+  @Override
+  public boolean validar() {
+    return validarUsuario() && validarLogin() && validarSenha();
+  }
+
+  public boolean validarLogin() {
+    return login != null && !login.isEmpty();
+  }
+
+  public boolean validarSenha() {
+    return senha != null && !senha.isEmpty();
+  }
 }

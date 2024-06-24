@@ -21,7 +21,7 @@ public class UsuarioRepository implements Serializable {
     this.matriculas_UR = new HashMap<>(usuarioRepository.matriculas_UR);
   }
 
-  public boolean adicionarUsuario(Usuario usuario) {
+  public boolean cadastrarUsuario(Usuario usuario) {
     if (matriculas_UR.containsKey(usuario.getMatricula())) {
       return false;
     }

@@ -22,4 +22,13 @@ public class Professor extends Usuario {
   public void setDepartamento(String departamento) {
     this.departamento = departamento;
   }
+
+  @Override
+  public boolean validar() {
+    return validarUsuario() && validarDepartamento();
+  }
+
+  private boolean validarDepartamento() {
+    return departamento != null && !departamento.isEmpty();
+  }
 }
