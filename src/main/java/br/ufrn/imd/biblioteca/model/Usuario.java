@@ -67,11 +67,11 @@ public abstract class Usuario implements Serializable, IValidarClasse {
   }
 
   private boolean validarCpf() {
-    return cpf != null && cpf.length() == 11 && Validacao.isNumeric(cpf);
+    return cpf != null && cpf.length() == 11 && Validacao.strNumerica(cpf);
   }
 
   private boolean validarMatricula() {
-    return matricula != null && !matricula.isEmpty() && Validacao.isNumeric(matricula);
+    return matricula != null && !matricula.isEmpty() && Validacao.strNumerica(matricula);
   }
 
   private boolean validarDataNascimento() {
