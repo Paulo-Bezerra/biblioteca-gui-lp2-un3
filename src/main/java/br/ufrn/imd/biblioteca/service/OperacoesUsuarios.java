@@ -1,6 +1,7 @@
 package br.ufrn.imd.biblioteca.service;
 
 import br.ufrn.imd.biblioteca.dao.BancoDAO;
+import br.ufrn.imd.biblioteca.dto.UsuarioDTO;
 import br.ufrn.imd.biblioteca.model.Bibliotecario;
 import br.ufrn.imd.biblioteca.model.Estudante;
 import br.ufrn.imd.biblioteca.model.Professor;
@@ -8,6 +9,8 @@ import br.ufrn.imd.biblioteca.model.Usuario;
 import br.ufrn.imd.biblioteca.repository.UsuarioRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OperacoesUsuarios {
   private static final BancoDAO bancoDAO = BancoDAO.getInstance();
@@ -38,5 +41,13 @@ public class OperacoesUsuarios {
   // Método para verificar se uma string contém apenas números
   private static boolean isNumeric(String str) {
     return str.matches("\\d+");
+  }
+
+  public static List<UsuarioDTO> listarUsuarios() {
+    ArrayList<UsuarioDTO> usuariosDTO = new ArrayList<>();
+    for (Usuario usuario : getUR().getUsuarios()) {
+      usuariosDTO.add(new UsuarioDTO(usuario.getNome(), usuario.getMatricula()));
+    }
+    return usuariosDTO;
   }
 }
