@@ -62,7 +62,7 @@ public class CadastrarUsuarioController {
     );
 
     // caso precise verificar o radiobutton assim que entrar na tela
-    // atualizarVisibilidade(TipoUsuario.getSelectedToggle());
+    atualizarVisibilidade(TipoUsuario.getSelectedToggle());
   }
 
   @FXML
