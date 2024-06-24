@@ -58,7 +58,7 @@ public class CadastrarUsuarioController {
   @FXML
   private void initialize() {
     TipoUsuario.selectedToggleProperty().addListener(
-        (observable, oldValue, newValue) -> atualizarVisibilidade(newValue)
+      (objObservado, valorAntigo, valorNovo) -> atualizarVisibilidade(valorNovo)
     );
 
     // caso precise verificar o radiobutton assim que entrar na tela
@@ -95,11 +95,11 @@ public class CadastrarUsuarioController {
       return;
     }
     boolean cadastrou = OperacoesUsuarios.cadastrarEstudante(
-        tfNome.getText(),
-        tfCPF.getText(),
-        tfMatricula.getText(),
-        dtNascimento.getValue(),
-        tfCurso.getText()
+      tfNome.getText(),
+      tfCPF.getText(),
+      tfMatricula.getText(),
+      dtNascimento.getValue(),
+      tfCurso.getText()
     );
 
     if (cadastrou) {
@@ -119,11 +119,11 @@ public class CadastrarUsuarioController {
       return;
     }
     boolean cadastrou = OperacoesUsuarios.cadastrarProfessor(
-        tfNome.getText(),
-        tfCPF.getText(),
-        tfMatricula.getText(),
-        dtNascimento.getValue(),
-        tfDepartamento.getText()
+      tfNome.getText(),
+      tfCPF.getText(),
+      tfMatricula.getText(),
+      dtNascimento.getValue(),
+      tfDepartamento.getText()
     );
     if (cadastrou) {
       Alerta.exibirAlerta("Cadastro", "Professor cadastrado com sucesso!");
@@ -143,12 +143,12 @@ public class CadastrarUsuarioController {
       return;
     }
     boolean cadastrou = OperacoesUsuarios.cadastrarBiliotecario(
-        tfNome.getText(),
-        tfCPF.getText(),
-        tfMatricula.getText(),
-        dtNascimento.getValue(),
-        tfLogin.getText(),
-        pfSenha.getText()
+      tfNome.getText(),
+      tfCPF.getText(),
+      tfMatricula.getText(),
+      dtNascimento.getValue(),
+      tfLogin.getText(),
+      pfSenha.getText()
     );
     if (cadastrou) {
       Alerta.exibirAlerta("Cadastro", "Bibliotecário cadastrado com sucesso!");
