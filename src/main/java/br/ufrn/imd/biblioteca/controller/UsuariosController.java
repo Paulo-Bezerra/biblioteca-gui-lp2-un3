@@ -1,6 +1,7 @@
 package br.ufrn.imd.biblioteca.controller;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.dto.UsuarioDTO;
 import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
+import br.ufrn.imd.biblioteca.util.Tratamento;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -62,7 +64,7 @@ public class UsuariosController {
     }
     List<UsuarioDTO> usuarios = new ArrayList<>();
     for (UsuarioDTO usuario : OperacoesUsuarios.listarUsuarios()) {
-      if (usuario.nome().matches(".*" + tfBusca.getText().trim() + ".*")) {
+      if (Tratamento.contemString(usuario.nome(), tfBusca.getText().trim())) {
         usuarios.add(usuario);
       }
     }
