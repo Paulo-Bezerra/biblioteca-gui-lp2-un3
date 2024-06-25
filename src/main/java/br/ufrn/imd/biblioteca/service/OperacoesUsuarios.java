@@ -49,4 +49,8 @@ public class OperacoesUsuarios {
     }
     return usuariosDTO;
   }
+
+  public static boolean removerUsuario(String matricula) {
+    return matricula != null && getUR().removerUsuario(matricula);
+  }
 }

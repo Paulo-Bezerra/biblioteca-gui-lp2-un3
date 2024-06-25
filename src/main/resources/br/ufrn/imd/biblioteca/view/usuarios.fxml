@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -51,7 +50,7 @@
             <Label text="Usuários" />
             <HBox maxWidth="400.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="CADASTRAR" />
+                  <Button mnemonicParsing="false" onAction="#listarUsarios" text="LISTAR TODOS" />
                </children>
             </HBox>
             <HBox maxWidth="400.0" minWidth="220.0">
@@ -67,15 +66,13 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#listarUsarios" text="LISTAR TODOS" />
-            <ListView fx:id="lvUsuarios" maxHeight="300.0" maxWidth="400.0" />
             <HBox maxWidth="400.0">
                <children>
-                  <Button disable="true" mnemonicParsing="false" text="ANTERIOR" />
-                  <ChoiceBox disable="true" />
-                  <Button disable="true" mnemonicParsing="false" text="PRÓXIMO" />
+                  <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="CADASTRAR" />
+                  <Button fx:id="btRemover" disable="true" mnemonicParsing="false" onAction="#removerUsuario" text="REMOVER" />
                </children>
             </HBox>
+            <ListView fx:id="lvUsuarios" maxHeight="300.0" maxWidth="400.0" />
          </children>
          <BorderPane.margin>
             <Insets />
