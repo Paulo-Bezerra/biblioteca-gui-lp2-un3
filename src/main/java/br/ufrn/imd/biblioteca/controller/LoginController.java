@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 
 public class LoginController {
+  // Elementos da interface gráfica.
   @FXML
   private Label lbInvalida;
 
@@ -18,13 +19,16 @@ public class LoginController {
   @FXML
   private PasswordField pfSenha;
 
+  // Método chamado ao tentar autenticar
   @FXML
   private void autenticar() throws IOException {
     lbInvalida.setVisible(false);
+
+    // Verifica se o login e senha correspondem ao esperado.
     if (tfLogin.getText().equals("admin") && pfSenha.getText().equals("admin123")) {
-      App.trocarTela("inicio");
+      App.trocarTela("inicio"); // Troca para a tela inicial se a autenticação for bem-sucedida.
     } else {
-      lbInvalida.setVisible(true);
+      lbInvalida.setVisible(true); // Exibe mensagem de erro se a autenticação falhar.
     }
   }
 }

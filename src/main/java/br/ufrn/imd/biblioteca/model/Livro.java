@@ -3,7 +3,8 @@ package br.ufrn.imd.biblioteca.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Livro implements Serializable {
+// Representa um livro na biblioteca
+public class Livro implements Serializable, IValidarClasse {
   private String titulo;
   private String autor;
   private String assunto;
@@ -11,6 +12,7 @@ public class Livro implements Serializable {
   private int ano;
   private int estoque;
 
+  // Construtor padrão do livro.
   public Livro(String titulo, String autor, String assunto, String isbn, int ano, int estoque) {
     this.titulo = titulo;
     this.autor = autor;
@@ -20,6 +22,7 @@ public class Livro implements Serializable {
     this.estoque = estoque;
   }
 
+  // Construtor de cópia de dados de outro livro.
   public Livro(Livro livro) {
     this.titulo = livro.titulo;
     this.autor = livro.autor;
@@ -29,6 +32,7 @@ public class Livro implements Serializable {
     this.estoque = livro.estoque;
   }
 
+  // Getters e setters.
   public String getTitulo() {
     return titulo;
   }
@@ -77,6 +81,13 @@ public class Livro implements Serializable {
     this.estoque = estoque;
   }
 
+  // Validação do Livro.
+  @Override
+  public boolean validar() {
+    return false;
+  }
+
+  // Sobrescreve equals e hashCode para comparar os livros pelo ISBN.
   @Override
   public boolean equals(Object o) {
     if (this == o)

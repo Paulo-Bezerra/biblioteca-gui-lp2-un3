@@ -6,12 +6,14 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+// Define um usuário genérico da biblioteca.
 public abstract class Usuario implements Serializable, IValidarClasse {
   private String nome;
   private String cpf;
   private String matricula;
   private LocalDate dataNascimento;
 
+  // Construtor padrão do usuário.
   public Usuario(String nome, String cpf, String matricula, LocalDate dataNascimento) {
     this.nome = nome;
     this.cpf = cpf;
@@ -19,6 +21,7 @@ public abstract class Usuario implements Serializable, IValidarClasse {
     this.dataNascimento = dataNascimento;
   }
 
+  // Construtor de cópia de dados de outro usuário.
   public Usuario(Usuario usuario) {
     this.nome = usuario.getNome();
     this.cpf = usuario.getCpf();
@@ -26,6 +29,7 @@ public abstract class Usuario implements Serializable, IValidarClasse {
     this.dataNascimento = usuario.getDataNascimento();
   }
 
+  // Getters e setters.
   public String getNome() {
     return nome;
   }
@@ -58,10 +62,12 @@ public abstract class Usuario implements Serializable, IValidarClasse {
     this.dataNascimento = dataNascimento;
   }
 
+  // Método protegido de validação dos atributos do usuário.
   protected boolean validarUsuario() {
     return validarNome() && validarCpf() && validarMatricula() && validarDataNascimento();
   }
 
+  // Métodos privados de validação dos atributos.
   private boolean validarNome() {
     return nome != null && !nome.isEmpty();
   }
@@ -78,6 +84,7 @@ public abstract class Usuario implements Serializable, IValidarClasse {
     return dataNascimento != null && !dataNascimento.isAfter(LocalDate.now());
   }
 
+  // Sobrescreve equals e hashCode para comparar os usuários pela matrícula.
   @Override
   public boolean equals(Object o) {
     if (this == o)

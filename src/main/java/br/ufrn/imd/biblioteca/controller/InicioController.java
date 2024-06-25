@@ -6,18 +6,22 @@ import br.ufrn.imd.biblioteca.App;
 import javafx.fxml.FXML;
 
 public class InicioController {
+  // Métodos para navegação entre telas
   @FXML
   private void usuarios() throws IOException {
     App.trocarTela("usuarios");
   }
+
   @FXML
   private void livros() throws IOException {
     App.trocarTela("livros");
   }
+
   @FXML
   private void emprestimos() throws IOException {
     App.trocarTela("emprestimos");
   }
+
   @FXML
   private void sair() throws IOException {
     App.trocarTela("login");

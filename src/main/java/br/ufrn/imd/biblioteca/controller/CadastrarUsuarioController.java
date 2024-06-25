@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class CadastrarUsuarioController {
+  // Elementos da interface gráfica.
   @FXML
   private TextField tfNome;
 
@@ -55,45 +56,14 @@ public class CadastrarUsuarioController {
   @FXML
   private PasswordField pfSenha;
 
-  @FXML
-  private void initialize() {
-    TipoUsuario.selectedToggleProperty().addListener(
-      (objObservado, valorAntigo, valorNovo) -> atualizarVisibilidade(valorNovo)
-    );
-
-    // caso precise verificar o radiobutton assim que entrar na tela
-    atualizarVisibilidade(TipoUsuario.getSelectedToggle());
-  }
-
-  @FXML
-  private void atualizarVisibilidade(Toggle opcaoSelecionada) {
-    if (opcaoSelecionada.equals(rbEstudante)) {
-      ctEstudante.setVisible(true);
-      ctProfessor.setVisible(false);
-      ctBibliotecario.setVisible(false);
-    } else if (opcaoSelecionada.equals(rbProfessor)) {
-      ctEstudante.setVisible(false);
-      ctProfessor.setVisible(true);
-      ctBibliotecario.setVisible(false);
-    } else if (opcaoSelecionada.equals(rbBibliotecario)) {
-      ctEstudante.setVisible(false);
-      ctProfessor.setVisible(false);
-      ctBibliotecario.setVisible(true);
-    }
-  }
-
-  @FXML
-  private void voltar() throws IOException {
-    App.trocarTela("usuarios");
-  }
-
-
+  // Método para cadastrar um estudante.
   @FXML
   private void cadastraEstudante() {
     if (camposUsuarioVazios() || tfCurso.getText().isEmpty()) {
       Alerta.exibirAlerta("Cadastro", "Preencha todos os campos!");
       return;
     }
+
     boolean cadastrou = OperacoesUsuarios.cadastrarEstudante(
       tfNome.getText(),
       tfCPF.getText(),
@@ -112,12 +82,14 @@ public class CadastrarUsuarioController {
     }
   }
 
+  // Método para cadastrar um professor.
   @FXML
   private void cadastrarProfessor() {
     if (camposUsuarioVazios() || tfDepartamento.getText().isEmpty()) {
       Alerta.exibirAlerta("Cadastro", "Preencha todos os campos!");
       return;
     }
+
     boolean cadastrou = OperacoesUsuarios.cadastrarProfessor(
       tfNome.getText(),
       tfCPF.getText(),
@@ -125,6 +97,7 @@ public class CadastrarUsuarioController {
       dtNascimento.getValue(),
       tfDepartamento.getText()
     );
+
     if (cadastrou) {
       Alerta.exibirAlerta("Cadastro", "Professor cadastrado com sucesso!");
 
@@ -135,7 +108,7 @@ public class CadastrarUsuarioController {
     }
   }
 
-
+  // Método para cadastrar um bibliotecário.
   @FXML
   private void cadastrarBiblitecario() {
     if (camposUsuarioVazios() || tfLogin.getText().isEmpty() || pfSenha.getText().isEmpty()) {
@@ -160,6 +133,7 @@ public class CadastrarUsuarioController {
     }
   }
 
+  // Verifica se há campos de usuário vazios.
   @FXML
   private boolean camposUsuarioVazios() {
     return tfNome.getText().isEmpty()
@@ -168,6 +142,42 @@ public class CadastrarUsuarioController {
            || dtNascimento.getValue() == null;
   }
 
+  // Volta para a tela de usuários.
+  @FXML
+  private void voltar() throws IOException {
+    App.trocarTela("usuarios");
+  }
+
+  // Inicializa  o monitoramento para mostrar os campos de acordo com o usuário selecionado do RadioButton.
+  @FXML
+  private void initialize() {
+    TipoUsuario.selectedToggleProperty().addListener(
+      (objObservado, valorAntigo, valorNovo) -> atualizarVisibilidade(valorNovo)
+    );
+
+    // Caso precise verificar o radiobutton assim que entrar na tela.
+    atualizarVisibilidade(TipoUsuario.getSelectedToggle());
+  }
+
+  // Atualiza a visibilidade dos campos conforme o RadioButton selecionado (Estudante, Professor, Bibliotecário).
+  @FXML
+  private void atualizarVisibilidade(Toggle opcaoSelecionada) {
+    if (opcaoSelecionada.equals(rbEstudante)) {
+      ctEstudante.setVisible(true);
+      ctProfessor.setVisible(false);
+      ctBibliotecario.setVisible(false);
+    } else if (opcaoSelecionada.equals(rbProfessor)) {
+      ctEstudante.setVisible(false);
+      ctProfessor.setVisible(true);
+      ctBibliotecario.setVisible(false);
+    } else if (opcaoSelecionada.equals(rbBibliotecario)) {
+      ctEstudante.setVisible(false);
+      ctProfessor.setVisible(false);
+      ctBibliotecario.setVisible(true);
+    }
+  }
+
+  // Limpa todos os campos de entrada
   @FXML
   private void limparCampos() {
     tfNome.clear();

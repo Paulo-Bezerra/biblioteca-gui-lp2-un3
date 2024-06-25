@@ -13,33 +13,40 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class UsuariosController {
-
+  // Elementos da interface gráfica.
   @FXML
   private TextField tfBusca;
 
   @FXML
   private ListView<UsuarioDTO> lvUsuarios;
+
+  // Métodos para navegação entre telas
   @FXML
   private void cadastrarUsuario() throws IOException {
     App.trocarTela("cadastrar-usuario");
   }
+
   @FXML
   private void inicio() throws IOException {
     App.trocarTela("inicio");
   }
+
   @FXML
   private void livros() throws IOException {
     App.trocarTela("livros");
   }
+
   @FXML
   private void emprestimos() throws IOException {
     App.trocarTela("emprestimos");
   }
+
   @FXML
   private void sair() throws IOException {
     App.trocarTela("login");
   }
 
+  // Lista todos os usuários e exibe na ListView
   @FXML
   private void listarUsarios() {
     List<UsuarioDTO> usuarios = OperacoesUsuarios.listarUsuarios();
@@ -47,6 +54,7 @@ public class UsuariosController {
     lvUsuarios.getItems().setAll(usuarios);
   }
 
+  // Filtra usuários pelo nome digitado no TextField de busca
   @FXML
   private void buscarUsuario() {
     if (tfBusca.getText().trim().isEmpty()) {
