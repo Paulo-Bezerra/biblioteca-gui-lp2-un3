@@ -57,4 +57,9 @@ public class LivroRepository implements Serializable {
   public boolean existeLivro(String isbn) {
     return isbn_LR.containsKey(isbn);
   }
+
+  // Retorna o número de livros cadastrados.
+  public int quantidadeLivros() {
+    return isbn_LR.size();
+  }
 }

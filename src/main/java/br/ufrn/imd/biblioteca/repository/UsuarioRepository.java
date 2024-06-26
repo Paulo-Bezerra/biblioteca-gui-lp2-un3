@@ -71,4 +71,9 @@ public class UsuarioRepository implements Serializable {
   public boolean existeUsuario(String matricula) {
     return matriculas_UR.containsKey(matricula);
   }
+
+  // Retorna o número de usuários cadastrados.
+  public int quantidadeUsuarios() {
+    return matriculas_UR.size();
+  }
 }
