@@ -162,19 +162,9 @@ public class CadastrarUsuarioController {
   // Atualiza a visibilidade dos campos conforme o RadioButton selecionado (Estudante, Professor, Bibliotecário).
   @FXML
   private void atualizarVisibilidade(Toggle opcaoSelecionada) {
-    if (opcaoSelecionada.equals(rbEstudante)) {
-      ctEstudante.setVisible(true);
-      ctProfessor.setVisible(false);
-      ctBibliotecario.setVisible(false);
-    } else if (opcaoSelecionada.equals(rbProfessor)) {
-      ctEstudante.setVisible(false);
-      ctProfessor.setVisible(true);
-      ctBibliotecario.setVisible(false);
-    } else if (opcaoSelecionada.equals(rbBibliotecario)) {
-      ctEstudante.setVisible(false);
-      ctProfessor.setVisible(false);
-      ctBibliotecario.setVisible(true);
-    }
+    ctEstudante.setVisible(opcaoSelecionada.equals(rbEstudante));
+    ctProfessor.setVisible(opcaoSelecionada.equals(rbProfessor));
+    ctBibliotecario.setVisible(opcaoSelecionada.equals(rbBibliotecario));
   }
 
   // Limpa todos os campos de entrada
