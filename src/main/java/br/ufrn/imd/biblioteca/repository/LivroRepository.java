@@ -1,6 +1,7 @@
 package br.ufrn.imd.biblioteca.repository;
 
 import br.ufrn.imd.biblioteca.model.Livro;
+import br.ufrn.imd.biblioteca.model.Usuario;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class LivroRepository implements Serializable {
   // Cadastra um livro se o ISBN ainda não estiver registrado.
   // Retorna true se bem-sucedido.
   public boolean cadastrarLivro(Livro livro) {
-    if (isbn_LR.containsKey(livro.getIsbn())) {
+    if (existeLivro(livro)) {
       return false;
     }
     isbn_LR.put(livro.getIsbn(), livro);
@@ -33,10 +34,15 @@ public class LivroRepository implements Serializable {
 
   // Remove um livro pelo ISBN. Retorna true se bem-sucedido.
   public boolean removerLivro(String isbn) {
-    if (!isbn_LR.containsKey(isbn)) {
+    return isbn_LR.remove(isbn) != null;
+  }
+
+  // Atualiza o livro associado ao ISBN do livro fornecido.
+  public boolean atualizarLivro(Livro livro) {
+    if (!existeLivro(livro)) {
       return false;
     }
-    isbn_LR.remove(isbn);
+    isbn_LR.put(livro.getIsbn(), livro);
     return true;
   }
 
@@ -53,6 +59,10 @@ public class LivroRepository implements Serializable {
     return new Livro(isbn_LR.get(isbn));
   }
 
+  // Verificar se existe o livro fornecido.
+  public boolean existeLivro(Livro livro) {
+    return existeLivro(livro.getIsbn());
+  }
   // Verifica se existe um livro com o ISBN fornecido.
   public boolean existeLivro(String isbn) {
     return isbn_LR.containsKey(isbn);

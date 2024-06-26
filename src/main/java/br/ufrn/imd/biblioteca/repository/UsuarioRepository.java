@@ -27,7 +27,7 @@ public class UsuarioRepository implements Serializable {
   // Cadastra um usuário se a matrícula ainda não estiver registrada.
   // Retorna true se bem-sucedido.
   public boolean cadastrarUsuario(Usuario usuario) {
-    if (matriculas_UR.containsKey(usuario.getMatricula())) {
+    if (existeUsuario(usuario)) {
       return false;
     }
     matriculas_UR.put(usuario.getMatricula(), usuario);
@@ -36,12 +36,18 @@ public class UsuarioRepository implements Serializable {
 
   // Remove um usuário pela matrícula. Retorna true se bem-sucedido.
   public boolean removerUsuario(String matricula) {
-    if (!matriculas_UR.containsKey(matricula)) {
+    return matriculas_UR.remove(matricula) != null;
+  }
+
+  // Atualiza o usuário associado à matrícula do usuário fornecido.
+  public boolean atualizarUsuario(Usuario usuario) {
+    if (!existeUsuario(usuario)) {
       return false;
     }
-    matriculas_UR.remove(matricula);
+    matriculas_UR.put(usuario.getMatricula(), usuario);
     return true;
   }
+
 
   // Retorna a lista de todos os usuários cadastrados.
   public List<Usuario> getUsuarios() {
@@ -65,6 +71,11 @@ public class UsuarioRepository implements Serializable {
         return null;
       }
     }
+  }
+
+  // Verificar se existe o usuário fornecido.
+  public boolean existeUsuario(Usuario usuario) {
+    return existeUsuario(usuario.getMatricula());
   }
 
   // Verifica se existe um usuário com a matrícula fornecida.
