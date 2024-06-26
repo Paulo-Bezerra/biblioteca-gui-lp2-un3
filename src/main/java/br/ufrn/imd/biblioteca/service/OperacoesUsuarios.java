@@ -53,4 +53,8 @@ public class OperacoesUsuarios {
   public static boolean removerUsuario(String matricula) {
     return matricula != null && getUR().removerUsuario(matricula);
   }
+
+public static int getNumUsuarios() {
+    return getUR().getUsuarios().size();
+}
 }

@@ -45,7 +45,7 @@
                </VBox.margin>
             </ImageView>
             <Label text="Início" />
-            <Label text="Nº de usuários: 5" />
+            <Label fx:id="lbNumUsuarios" text="Nº de usuários: 5" />
             <Label text="Tamanho do acervo de livros: 10" />
             <Label text="Nº de empréstimos: 10" />
             <Label text="Nº  de empréstimos em atraso: 2" />
