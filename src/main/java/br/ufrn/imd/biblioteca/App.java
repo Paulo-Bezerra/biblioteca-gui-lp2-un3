@@ -16,6 +16,7 @@ public class App extends Application {
   private static Scene scene;
 
   // Inicializa o programa e exibe a tela de login.
+  @SuppressWarnings("exports")
   @Override
   public void start(Stage stage) throws IOException {
     // Define dimensões mínimas, título e ícone do programa.
