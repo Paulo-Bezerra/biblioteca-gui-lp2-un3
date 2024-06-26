@@ -30,11 +30,7 @@ public class UsuariosController {
   private void initialize() {
     lvUsuarios.getSelectionModel().selectedItemProperty().addListener(
       (observado, antigoValor, novoValor) -> {
-        if (novoValor != null) {
-          btRemover.setDisable(false);
-        } else {
-          btRemover.setDisable(true);
-        }
+        btRemover.setDisable(novoValor == null);
       }
     );
   }

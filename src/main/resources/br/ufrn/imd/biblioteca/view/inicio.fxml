@@ -46,9 +46,9 @@
             </ImageView>
             <Label text="Início" />
             <Label fx:id="lbNumUsuarios" text="Nº de usuários: 5" />
-            <Label text="Tamanho do acervo de livros: 10" />
-            <Label text="Nº de empréstimos: 10" />
-            <Label text="Nº  de empréstimos em atraso: 2" />
+            <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 100" />
+            <Label fx:id="lbNumEmpretimos" text="Nº de empréstimos: 10" />
+            <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 2" />
          </children>
          <BorderPane.margin>
             <Insets />
