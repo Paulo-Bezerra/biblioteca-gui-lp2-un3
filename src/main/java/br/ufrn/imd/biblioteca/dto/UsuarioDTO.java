@@ -5,6 +5,6 @@ public record UsuarioDTO(String nome, String matricula) {
   // Sobrescreve o método toString para formatar a exibição dos dados.
   @Override
   public String toString() {
-    return "Nome: " + nome + ", Matricula: " + matricula;
+    return nome + ", Matricula: " + matricula;
   }
 }

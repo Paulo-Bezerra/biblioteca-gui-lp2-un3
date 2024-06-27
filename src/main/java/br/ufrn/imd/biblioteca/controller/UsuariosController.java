@@ -68,11 +68,12 @@ public class UsuariosController {
   @FXML
   private void removerUsuario() {
     UsuarioDTO usuario = lvUsuarios.getSelectionModel().getSelectedItem();
-    if (usuario != null) {
+    if (usuario != null && Alerta.exibirConfirmacao("Remoção", "Remover: " + usuario + ".")) {
       if (OperacoesUsuarios.removerUsuario(usuario.matricula())) {
-        Alerta.exibirAlerta("Remoção", "Usuário removido com sucesso!");
+        lvUsuarios.getItems().remove(usuario);
+        Alerta.exibirInformacao("Remoção", "Usuário removido com sucesso!");
       } else {
-        Alerta.exibirAlerta("Remoção", "Não foi possivel remover o usuário!");
+        Alerta.exibirErro("Remoção", "Não foi possivel remover o usuário!");
       }
     }
   }
