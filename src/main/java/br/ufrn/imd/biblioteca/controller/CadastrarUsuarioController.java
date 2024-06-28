@@ -71,15 +71,15 @@ public class CadastrarUsuarioController {
 
     dtNascimento.focusedProperty().addListener(
       (objObservado, valorAntigo, valorNovo) -> {
-        if (!valorNovo) { // Se o foco foi perdido
+        if (!valorNovo) { // Se o foco foi perdido.
           String dataString = dtNascimento.getEditor().getText();
           try {
             LocalDate.parse(dataString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            // Se chegou aqui, a data é válida
+            // Se chegou aqui, a data é válida.
           } catch (DateTimeParseException e) {
-            // Se houve erro ao converter a data
+            // Se houve erro ao converter a data limpa o DataPicker.
             dtNascimento.getEditor().clear();
-            // Faça alguma ação específica aqui
+            // Retorna no terminal o formato aceito.
             System.out.println("Data inválida: " + dataString + "\n Usar formato: \"dd/MM/yyyy\"");
           }
         }
