@@ -8,6 +8,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class CadastrarUsuarioController {
   // Elementos da interface gráfica.
@@ -55,6 +58,42 @@ public class CadastrarUsuarioController {
 
   @FXML
   private PasswordField pfSenha;
+
+  // Inicializa  o monitoramento para mostrar os campos de acordo com o usuário selecionado do RadioButton.
+  @FXML
+  private void initialize() {
+    TipoUsuario.selectedToggleProperty().addListener(
+      (objObservado, valorAntigo, valorNovo) -> atualizarVisibilidade(valorNovo)
+    );
+
+    // Caso precise verificar o radiobutton assim que entrar na tela.
+    atualizarVisibilidade(TipoUsuario.getSelectedToggle());
+
+    dtNascimento.focusedProperty().addListener(
+      (objObservado, valorAntigo, valorNovo) -> {
+        if (!valorNovo) { // Se o foco foi perdido
+          String dataString = dtNascimento.getEditor().getText();
+          try {
+            LocalDate.parse(dataString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            // Se chegou aqui, a data é válida
+          } catch (DateTimeParseException e) {
+            // Se houve erro ao converter a data
+            dtNascimento.getEditor().clear();
+            // Faça alguma ação específica aqui
+            System.out.println("Data inválida: " + dataString + "\n Usar formato: \"dd/MM/yyyy\"");
+          }
+        }
+      }
+    );
+  }
+
+  // Atualiza a visibilidade dos campos conforme o RadioButton selecionado (Estudante, Professor, Bibliotecário).
+  @FXML
+  private void atualizarVisibilidade(Toggle opcaoSelecionada) {
+    ctEstudante.setVisible(opcaoSelecionada.equals(rbEstudante));
+    ctProfessor.setVisible(opcaoSelecionada.equals(rbProfessor));
+    ctBibliotecario.setVisible(opcaoSelecionada.equals(rbBibliotecario));
+  }
 
   // Método para cadastrar um estudante.
   @FXML
@@ -146,25 +185,6 @@ public class CadastrarUsuarioController {
   @FXML
   private void voltar() throws IOException {
     App.trocarTela("usuarios");
-  }
-
-  // Inicializa  o monitoramento para mostrar os campos de acordo com o usuário selecionado do RadioButton.
-  @FXML
-  private void initialize() {
-    TipoUsuario.selectedToggleProperty().addListener(
-      (objObservado, valorAntigo, valorNovo) -> atualizarVisibilidade(valorNovo)
-    );
-
-    // Caso precise verificar o radiobutton assim que entrar na tela.
-    atualizarVisibilidade(TipoUsuario.getSelectedToggle());
-  }
-
-  // Atualiza a visibilidade dos campos conforme o RadioButton selecionado (Estudante, Professor, Bibliotecário).
-  @FXML
-  private void atualizarVisibilidade(Toggle opcaoSelecionada) {
-    ctEstudante.setVisible(opcaoSelecionada.equals(rbEstudante));
-    ctProfessor.setVisible(opcaoSelecionada.equals(rbProfessor));
-    ctBibliotecario.setVisible(opcaoSelecionada.equals(rbBibliotecario));
   }
 
   // Limpa todos os campos de entrada
