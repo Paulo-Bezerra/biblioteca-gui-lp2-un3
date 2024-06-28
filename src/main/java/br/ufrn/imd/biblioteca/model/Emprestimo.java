@@ -1,5 +1,7 @@
 package br.ufrn.imd.biblioteca.model;
 
+import br.ufrn.imd.biblioteca.util.Validacao;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -63,7 +65,20 @@ public class Emprestimo implements Serializable, IValidarClasse {
   // Validação do empréstimo.
   @Override
   public boolean validar() {
-    return false;
+    return validarMatricula() && validarIsbn() && validarDatas();
+  }
+
+  // Métodos privados de validação dos atributos.
+  private boolean validarMatricula() {
+    return matricula != null && !matricula.isEmpty() && Validacao.strNumerica(matricula);
+  }
+
+  private boolean validarIsbn() {
+    return isbn != null && !isbn.isEmpty() && Validacao.strNumerica(isbn);
+  }
+
+  private boolean validarDatas() {
+    return dataEmprestimo != null && dataDevolucao != null  && !dataEmprestimo.isBefore(dataDevolucao);
   }
 
   // Sobrescreve equals para comparar empréstimos pela matrícula e o ISBN.
