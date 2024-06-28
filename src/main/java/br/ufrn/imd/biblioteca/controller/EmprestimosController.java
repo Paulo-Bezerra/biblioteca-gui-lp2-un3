@@ -1,6 +1,8 @@
 package br.ufrn.imd.biblioteca.controller;
 
 import br.ufrn.imd.biblioteca.App;
+import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
+import br.ufrn.imd.biblioteca.util.Alerta;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
@@ -26,4 +28,6 @@ public class EmprestimosController {
   private void sair() throws IOException {
     App.trocarTela("login");
   }
+
+  
 }
