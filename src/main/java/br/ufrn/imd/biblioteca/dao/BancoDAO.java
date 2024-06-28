@@ -43,11 +43,11 @@ public class BancoDAO {
   // Método para salvar os dados dos repositórios em arquivos binários.
   // Retorna true se os dados foram salvos com sucesso, false caso contrário.
   public boolean salvarDados() {
-    try (FileOutputStream arquivoUR = new FileOutputStream(getDados("ur"));
+    try (FileOutputStream arquivoUR = new FileOutputStream(getDados("usuarios"));
          ObjectOutputStream saidaUR = new ObjectOutputStream(arquivoUR);
-         FileOutputStream arquivoLR = new FileOutputStream(getDados("lr"));
+         FileOutputStream arquivoLR = new FileOutputStream(getDados("livros"));
          ObjectOutputStream saidaLR = new ObjectOutputStream(arquivoLR);
-         FileOutputStream arquivoER = new FileOutputStream(getDados("er"));
+         FileOutputStream arquivoER = new FileOutputStream(getDados("emprestimos"));
          ObjectOutputStream saidaER = new ObjectOutputStream(arquivoER)
     ) {
       saidaUR.writeObject(UR);
@@ -69,11 +69,11 @@ public class BancoDAO {
   // Método para carregar os dados dos arquivos binários para os repositórios.
   // Retorna true se os dados foram carregados com sucesso, false caso contrário.
   public boolean carregarDados() {
-    try (FileInputStream arquivoUR = new FileInputStream(getDados("ur"));
+    try (FileInputStream arquivoUR = new FileInputStream(getDados("usuarios"));
          ObjectInputStream entradaUR = new ObjectInputStream(arquivoUR);
-         FileInputStream arquivoLR = new FileInputStream(getDados("lr"));
+         FileInputStream arquivoLR = new FileInputStream(getDados("livros"));
          ObjectInputStream entradaLR = new ObjectInputStream(arquivoLR);
-         FileInputStream arquivoER = new FileInputStream(getDados("er"));
+         FileInputStream arquivoER = new FileInputStream(getDados("emprestimos"));
          ObjectInputStream entradaER = new ObjectInputStream(arquivoER)
     ) {
       this.UR = new UsuarioRepository((UsuarioRepository) entradaUR.readObject());
@@ -103,6 +103,6 @@ public class BancoDAO {
 
   // Retorna o caminho do arquivo de dados específico com base no tipo.
   public String getDados(String dados) {
-    return "src/main/resources/br/ufrn/imd/biblioteca/data/salvo_" + dados + ".bin";
+    return "src/main/resources/br/ufrn/imd/biblioteca/data/" + dados + ".bin";
   }
 }
