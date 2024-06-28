@@ -2,16 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -33,7 +29,7 @@
                                 <Insets />
                             </VBox.margin>
                         </ImageView>
-                        <Label text="Cadastro de usuário">
+                        <Label text="Cadastro de Livros">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
@@ -43,51 +39,41 @@
                         </Label>
                         <VBox maxWidth="600.0">
                             <children>
-                                <Label text="Nome:" />
+                                <Label text="Título:" />
                                 <TextField fx:id="tfNome" promptText="João Silva" />
-                                <Label text="CPF (Apenas números):">
+                                <Label text="Autor:">
                                     <VBox.margin>
                                         <Insets top="10.0" />
                                     </VBox.margin>
                                 </Label>
                                 <TextField fx:id="tfCPF" promptText="12312312345" />
-                                <Label layoutX="10.0" layoutY="69.0" text="Matrícula (Apenas números):">
+                                <Label layoutX="10.0" layoutY="69.0" text="Assunto:">
                                     <VBox.margin>
                                         <Insets top="10.0" />
                                     </VBox.margin>
                                 </Label>
                                 <TextField fx:id="tfMatricula" layoutX="10.0" layoutY="86.0" promptText="202410001" />
-                                <Label text="Data de nascimento:">
+                                <Label text="ISBN (apenas dígitos):">
                                     <VBox.margin>
                                         <Insets top="10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <DatePicker fx:id="dtNascimento" promptText="26/07/2000" />
-                                <Label layoutX="30.0" layoutY="191.0" text="Tipo do usuário:">
+                        <TextField fx:id="tfMatricula1" promptText="202410001" />
+                                <Label layoutX="30.0" layoutY="191.0" text="Ano da publicação:">
                                     <VBox.margin>
                                         <Insets top="10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <HBox>
-                                    <children>
-                                        <RadioButton fx:id="rbEstudante" mnemonicParsing="false" selected="true" text="Estudante">
-                                            <toggleGroup>
-                                                <ToggleGroup fx:id="TipoUsuario" />
-                                            </toggleGroup>
-                                        </RadioButton>
-                                        <RadioButton fx:id="rbProfessor" mnemonicParsing="false" text="Professor" toggleGroup="$TipoUsuario" />
-                                        <RadioButton fx:id="rbBibliotecario" mnemonicParsing="false" text="Bibliotecário" toggleGroup="$TipoUsuario" />
-                                    </children>
-                                </HBox>
+                        <TextField fx:id="tfMatricula2" promptText="202410001" />
                                 <StackPane>
                                     <children>
                                         <VBox fx:id="ctEstudante">
                                             <children>
-                                                <Label text="Curso:" />
+                                                <Label text="Quantidade me estoque:" />
                                                 <TextField fx:id="tfCurso" promptText="Tecnologia da Informação" />
                                                 <BorderPane>
                                                     <right>
-                                                        <Button mnemonicParsing="false" text="CADASTRAR ESTUDANTE" BorderPane.alignment="CENTER" />
+                                                        <Button mnemonicParsing="false" text="CADASTRAR LIVRO" BorderPane.alignment="CENTER" />
                                                     </right>
                                                     <left>
                                                         <Button mnemonicParsing="false" text="VOLTAR" BorderPane.alignment="CENTER" />
