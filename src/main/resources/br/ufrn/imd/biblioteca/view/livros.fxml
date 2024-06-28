@@ -56,7 +56,7 @@
                </VBox.margin></Label>
             <HBox maxWidth="400.0">
                <children>
-                  <Button mnemonicParsing="false" text="LISTAR TODOS" />
+                  <Button mnemonicParsing="false" onAction="#listarLivros" text="LISTAR TODOS" />
                </children>
             </HBox>
             <HBox maxWidth="400.0" minWidth="220.0">
