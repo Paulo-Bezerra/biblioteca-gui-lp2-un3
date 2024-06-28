@@ -13,14 +13,10 @@ import br.ufrn.imd.biblioteca.model.Professor;
 import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-
-import static javafx.scene.input.KeyCode.T;
 
 public class UsuariosController {
   // Elementos da interface gráfica.
