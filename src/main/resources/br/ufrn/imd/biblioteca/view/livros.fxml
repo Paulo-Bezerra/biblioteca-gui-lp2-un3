@@ -56,9 +56,14 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/book-48.png" />
+                     </image>
+                  </ImageView>
                   <Label text="Livros">
                      <VBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets />
                      </VBox.margin>
                      <font>
                         <Font size="18.0" />
@@ -68,6 +73,9 @@
                      <children>
                         <Button mnemonicParsing="false" onAction="#listarLivros" text="LISTAR TODOS" />
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox>
                      <children>
