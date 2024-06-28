@@ -4,8 +4,7 @@ import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
@@ -37,7 +36,7 @@ public class CadastrarLivroController {
       return;
     }
 
-    boolean cadastrou = OperacoesLivro.cadastrarLivro(
+    boolean cadastrou = OperacoesLivros.cadastrarLivro(
       tfTitulo.getText(),
       tfAutor.getText(),
       tfAssunto.getText(),
