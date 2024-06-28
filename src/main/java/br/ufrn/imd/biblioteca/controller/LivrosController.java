@@ -6,6 +6,13 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 
 public class LivrosController {
+
+  // Métodos para navegação entre telas
+  @FXML
+  private void cadastrarLivro() throws IOException {
+    App.trocarTela("cadastrar-livro");
+  }
+
   // Métodos para navegação entre telas
   @FXML
   private void inicio() throws IOException {

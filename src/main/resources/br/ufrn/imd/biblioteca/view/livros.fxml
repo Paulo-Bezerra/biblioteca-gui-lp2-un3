@@ -74,7 +74,7 @@
             </HBox>
             <HBox maxWidth="400.0">
                <children>
-                  <Button mnemonicParsing="false" text="CADASTRAR" />
+                  <Button mnemonicParsing="false" onAction="#cadastrarLivro" text="CADASTRAR" />
                   <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" text="DETALHES" />
                   <Button fx:id="btRemover" disable="true" mnemonicParsing="false" text="REMOVER" />
                </children>
