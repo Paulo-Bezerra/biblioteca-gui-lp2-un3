@@ -20,7 +20,10 @@
                   <Image url="@../images/ufrn-100x29.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" prefWidth="100.0" text="Biblioteca do IMD" />
+            <Label alignment="CENTER" prefWidth="100.0" text="Biblioteca do IMD">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inicio" prefWidth="100.0" text="INÍCIO" />
             <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" prefWidth="100.0" text="USUÁRIOS" />
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#livros" prefWidth="100.0" text="LIVROS" />
@@ -47,7 +50,10 @@
                   <Insets />
                </VBox.margin>
             </ImageView>
-            <Label text="Usuários" />
+            <Label text="Usuários">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin></Label>
             <HBox maxWidth="400.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#listarUsarios" text="LISTAR TODOS" />

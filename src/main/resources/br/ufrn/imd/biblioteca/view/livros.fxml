@@ -20,10 +20,13 @@
                   <Image url="@../images/ufrn-100x29.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" prefWidth="100.0" text="Biblioteca do IMD" />
+            <Label alignment="CENTER" prefWidth="100.0" text="Biblioteca do IMD">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inicio" prefWidth="100.0" text="INÍCIO" />
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#usuarios" prefWidth="100.0" text="USUÁRIOS" />
-            <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false"  prefWidth="100.0" text="LIVROS" />
+            <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" prefWidth="100.0" text="LIVROS" />
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#emprestimos" prefWidth="100.0" text="EMPRÉSTIMOS">
                <VBox.margin>
                   <Insets />
@@ -47,7 +50,10 @@
                   <Insets />
                </VBox.margin>
             </ImageView>
-            <Label text="Usuários" />
+            <Label text="Livros">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin></Label>
             <HBox maxWidth="400.0">
                <children>
                   <Button mnemonicParsing="false" text="LISTAR TODOS" />
@@ -55,7 +61,7 @@
             </HBox>
             <HBox maxWidth="400.0" minWidth="220.0">
                <children>
-                  <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Digite o nome do usuário." HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Digite o título do livro" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -68,7 +74,7 @@
             </HBox>
             <HBox maxWidth="400.0">
                <children>
-                  <Button mnemonicParsing="false"  text="CADASTRAR" />
+                  <Button mnemonicParsing="false" text="CADASTRAR" />
                   <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" text="DETALHES" />
                   <Button fx:id="btRemover" disable="true" mnemonicParsing="false" text="REMOVER" />
                </children>
