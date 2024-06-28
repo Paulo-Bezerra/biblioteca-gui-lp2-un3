@@ -21,7 +21,7 @@ public class App extends Application {
   public void start(Stage stage) throws IOException {
     // Define dimensões mínimas, título e ícone do programa.
     stage.setMinWidth(450);
-    stage.setMinHeight(550);
+    stage.setMinHeight(560);
     stage.setTitle("Biblioteca do IMD");
     stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/App-256.png"))));
 
