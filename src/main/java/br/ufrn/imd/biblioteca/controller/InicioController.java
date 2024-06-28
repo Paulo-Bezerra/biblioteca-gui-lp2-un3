@@ -35,6 +35,6 @@ public class InicioController {
 
   @FXML
   void initialize() {
-    lbNumUsuarios.setText("Nº de usuários: " + OperacoesUsuarios.getNumUsuarios());
+    lbNumUsuarios.setText("Nº de usuários: " + OperacoesUsuarios.quantidadeUsuarios());
   }
 }
