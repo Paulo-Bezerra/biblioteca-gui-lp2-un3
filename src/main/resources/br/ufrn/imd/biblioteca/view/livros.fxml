@@ -79,7 +79,7 @@
                   <Button fx:id="btRemover" disable="true" mnemonicParsing="false" text="REMOVER" />
                </children>
             </HBox>
-            <ListView fx:id="lvUsuarios" maxHeight="300.0" maxWidth="400.0" />
+            <ListView fx:id="lvLivros" maxHeight="300.0" maxWidth="400.0" />
          </children>
          <BorderPane.margin>
             <Insets />

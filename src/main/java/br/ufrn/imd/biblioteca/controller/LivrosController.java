@@ -98,8 +98,8 @@ public class LivrosController {
   }
 
   @FXML
-  private void livros() throws IOException {
-    App.trocarTela("livros");
+  private void usuarios() throws IOException {
+    App.trocarTela("usuarios");
   }
 
   @FXML
