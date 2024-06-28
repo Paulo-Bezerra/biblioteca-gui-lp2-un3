@@ -1,6 +1,9 @@
 package br.ufrn.imd.biblioteca.model;
 
+import br.ufrn.imd.biblioteca.util.Validacao;
+
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 // Representa um livro na biblioteca
@@ -84,7 +87,30 @@ public class Livro implements Serializable, IValidarClasse {
   // Validação do Livro.
   @Override
   public boolean validar() {
-    return false;
+    return validarTitulo()
+      && validarAutor()
+      && validarAssunto()
+      && validarIsbn()
+      && validarAno();
+  }
+
+  // Métodos privados de validação dos atributos.
+  private boolean validarTitulo() {
+    return titulo != null && !titulo.isEmpty();
+  }
+
+  private boolean validarAutor() {
+    return autor != null && !autor.isEmpty();
+  }
+  private boolean validarAssunto() {
+    return assunto != null && !assunto.isEmpty();
+  }
+  private boolean validarIsbn() {
+    return isbn != null && !isbn.isEmpty() && Validacao.strNumerica(isbn);
+  }
+
+  private boolean validarAno() {
+    return ano <= LocalDate.now().getYear();
   }
 
   // Sobrescreve equals e hashCode para comparar os livros pelo ISBN.
