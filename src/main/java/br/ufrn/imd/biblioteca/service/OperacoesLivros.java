@@ -17,11 +17,12 @@ public class OperacoesLivros {
 
   // Cria, valida e cadastra um livro. Retorna true se bem-sucedido.
   public static boolean cadastrarLivro(String titulo, String autor, String assunto, String isbn,  String ano, String estoque) {
-    if (!Validacao.strNumerica(ano) || !Validacao.strNumerica(estoque)) {
+    try { // Tennta converter para inteiro, false se não conseguir.
+      Livro livro = new Livro(titulo, autor, assunto, isbn, Integer.parseInt(ano), Integer.parseInt(estoque));
+      return livro.validar() && getLR().cadastrarLivro(livro);
+    } catch (Exception e) {
       return false;
     }
-    Livro livro = new Livro(titulo, autor, assunto, isbn, Integer.parseInt(ano), Integer.parseInt(estoque));
-    return livro.validar() && getLR().cadastrarLivro(livro);
   }
 
   // Retorna a lista de todos os livros cadastrados.
