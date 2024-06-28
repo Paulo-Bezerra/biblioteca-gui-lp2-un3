@@ -24,8 +24,8 @@ public class OperacoesLivros {
     return livro.validar() && getLR().cadastrarLivro(livro);
   }
 
-  // Retorna a lista de todos os usuários cadastrados.
-  public static List<LivroDTO> listarLivro() {
+  // Retorna a lista de todos os livros cadastrados.
+  public static List<LivroDTO> listarLivros() {
     ArrayList<LivroDTO> livros = new ArrayList<>();
     for (Livro l : getLR().getLivros()) {
       livros.add(new LivroDTO(l.getTitulo(), l.getIsbn()));
@@ -37,11 +37,11 @@ public class OperacoesLivros {
     return isbn != null && getLR().removerLivro(isbn);
   }
 
-  public static int quantidadeUsuarios() {
+  public static int quantidadeLivros() {
     return getLR().quantidadeLivros();
   }
 
-  public static Livro getUsuario(String matricula) {
-    return getLR().getLivro(matricula);
+  public static Livro getLivro(String isbn) {
+    return getLR().getLivro(isbn);
   }
 }
