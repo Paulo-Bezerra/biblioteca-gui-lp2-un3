@@ -16,7 +16,7 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="29.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/ufrn-100x29.png" />
                </image>
@@ -48,7 +48,7 @@
          <children>
             <VBox alignment="TOP_CENTER" maxWidth="500.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="48.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/metropole-200x48.png" />
                      </image>
