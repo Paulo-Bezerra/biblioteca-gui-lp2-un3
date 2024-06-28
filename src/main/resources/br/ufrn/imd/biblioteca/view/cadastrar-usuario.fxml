@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.biblioteca.controller.CadastrarUsuarioController">
    <children>
       <VBox alignment="TOP_CENTER">
@@ -29,7 +28,7 @@
                   <Insets />
                </VBox.margin>
             </ImageView>
-            <Label text="Cadastro de usuário">
+            <Label text="Cadastro de Usuários">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -71,8 +70,14 @@
                               <ToggleGroup fx:id="TipoUsuario" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="rbProfessor" mnemonicParsing="false" text="Professor" toggleGroup="$TipoUsuario" />
-                        <RadioButton fx:id="rbBibliotecario" mnemonicParsing="false" text="Bibliotecário" toggleGroup="$TipoUsuario" />
+                        <RadioButton fx:id="rbProfessor" mnemonicParsing="false" text="Professor" toggleGroup="$TipoUsuario">
+                           <HBox.margin>
+                              <Insets left="2.0" />
+                           </HBox.margin></RadioButton>
+                        <RadioButton fx:id="rbBibliotecario" mnemonicParsing="false" text="Bibliotecário" toggleGroup="$TipoUsuario">
+                           <HBox.margin>
+                              <Insets left="2.0" />
+                           </HBox.margin></RadioButton>
                      </children>
                   </HBox>
                   <StackPane>
