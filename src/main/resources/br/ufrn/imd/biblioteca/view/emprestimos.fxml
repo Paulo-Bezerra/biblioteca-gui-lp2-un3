@@ -27,7 +27,7 @@
                </VBox.margin></Label>
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inicio" prefWidth="100.0" text="INÍCIO" />
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#usuarios" prefWidth="100.0" text="USUÁRIOS" />
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#livros" prefWidth="100.0" text="EMPRÉSTIMOS" />
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#livros" prefWidth="100.0" text="empréstimoS" />
             <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" prefWidth="100.0" text="EMPRÉSTIMOS">
                <VBox.margin>
                   <Insets />
@@ -96,7 +96,7 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#cadastrarEmprestimo" text="CADASTRAR" />
+                        <Button mnemonicParsing="false" text="CADASTRAR" />
                         <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" text="DETALHES">
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" />
