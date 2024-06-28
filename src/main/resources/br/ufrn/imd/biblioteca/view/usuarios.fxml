@@ -10,10 +10,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.biblioteca.controller.UsuariosController">
    <left>
-      <VBox prefHeight="400.0" prefWidth="116.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -41,52 +42,81 @@
    </left>
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/metropole-200x48.png" />
-               </image>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </ImageView>
-            <Label text="Usuários">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin></Label>
-            <HBox maxWidth="400.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#listarUsarios" text="LISTAR TODOS" />
-               </children>
-            </HBox>
-            <HBox maxWidth="400.0" minWidth="220.0">
-               <children>
-                  <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Digite o nome do usuário." HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </TextField>
-                  <Button minWidth="60.0" mnemonicParsing="false" onAction="#buscarUsuario" text="BUSCAR" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <HBox maxWidth="400.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="CADASTRAR" />
-                  <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" onAction="#mostrarDetalhes" text="DETALHES" />
-                  <Button fx:id="btRemover" disable="true" mnemonicParsing="false" onAction="#removerUsuario" text="REMOVER" />
-               </children>
-            </HBox>
-            <ListView fx:id="lvUsuarios" maxHeight="300.0" maxWidth="400.0" />
-         </children>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
+         <children>
+            <VBox alignment="TOP_CENTER" maxWidth="500.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/metropole-200x48.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user-48.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Usuários">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#listarUsarios" text="LISTAR TODOS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Digite o nome do usuário." HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Button minWidth="60.0" mnemonicParsing="false" onAction="#buscarUsuario" text="BUSCAR">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="CADASTRAR" />
+                        <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" onAction="#mostrarDetalhes" text="DETALHES">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="btRemover" disable="true" mnemonicParsing="false" onAction="#removerUsuario" text="REMOVER" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <ListView fx:id="lvUsuarios" maxHeight="350.0">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </ListView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
       </VBox>
    </center>
 </BorderPane>
