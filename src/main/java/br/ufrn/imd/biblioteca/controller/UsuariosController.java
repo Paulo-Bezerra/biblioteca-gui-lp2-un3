@@ -7,18 +7,28 @@ import java.util.List;
 
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.dto.UsuarioDTO;
+import br.ufrn.imd.biblioteca.model.Bibliotecario;
+import br.ufrn.imd.biblioteca.model.Estudante;
+import br.ufrn.imd.biblioteca.model.Professor;
 import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+
+import static javafx.scene.input.KeyCode.T;
 
 public class UsuariosController {
   // Elementos da interface gráfica.
   @FXML
   private TextField tfBusca;
+
+  @FXML
+  private Button btDetalhes;
 
   @FXML
   private Button btRemover;
@@ -31,8 +41,14 @@ public class UsuariosController {
     lvUsuarios.getSelectionModel().selectedItemProperty().addListener(
       (observado, antigoValor, novoValor) -> {
         btRemover.setDisable(novoValor == null);
+        btDetalhes.setDisable(novoValor == null);
       }
     );
+    lvUsuarios.setOnMouseClicked(mouseEvent -> {
+      if (mouseEvent.getClickCount() == 2) {
+        mostrarDetalhes();
+      }
+    });
   }
 
   // Filtra usuários pelo nome digitado no TextField de busca
@@ -74,6 +90,40 @@ public class UsuariosController {
         Alerta.exibirInformacao("Remoção", "Usuário removido com sucesso!");
       } else {
         Alerta.exibirErro("Remoção", "Não foi possivel remover o usuário!");
+      }
+    }
+  }
+
+  @FXML
+  private void mostrarDetalhes() {
+    String saida;
+    UsuarioDTO user = lvUsuarios.getSelectionModel().getSelectedItem();
+    switch (OperacoesUsuarios.getUsuario(user.matricula())) {
+      case Estudante e -> {
+        saida = "Nome: " + e.getNome() + "\n" +
+          "CPF: " + e.getCpf() + "\n" +
+          "Matrícula: " + e.getMatricula() + "\n" +
+          "Data de nascimento: " + Tratamento.dataString(e.getDataNascimento()) + "\n" +
+          "Curso: " + e.getCurso();
+        Alerta.exibirInformacao("Dados do estudante", saida);
+      }
+      case Professor p -> {
+        saida = "Nome: " + p.getNome() + "\n" +
+          "CPF: " + p.getCpf() + "\n" +
+          "Matrícula: " + p.getMatricula() + "\n" +
+          "Data de nascimento: " + Tratamento.dataString(p.getDataNascimento()) + "\n" +
+          "Departamento: " + p.getDepartamento();
+        Alerta.exibirInformacao("Dados do professor", saida);
+      }
+      case Bibliotecario b -> {
+        saida = "Nome: " + b.getNome() + "\n" +
+          "CPF: " + b.getCpf() + "\n" +
+          "Matrícula: " + b.getMatricula() + "\n" +
+          "Data de nascimento: " + Tratamento.dataString(b.getDataNascimento()) + "\n" +
+          "Login: " + b.getLogin();
+        Alerta.exibirInformacao("Dados do biblitecário", saida);
+      }
+      default -> {
       }
     }
   }
