@@ -32,7 +32,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                             <font>
-                                <Font size="14.0" />
+                                <Font size="18.0" />
                             </font>
                         </Label>
                         <VBox maxWidth="600.0">
@@ -51,7 +51,7 @@
                                     </VBox.margin>
                                 </Label>
                                 <TextField fx:id="tfAssunto" layoutX="10.0" layoutY="86.0" promptText="Programacao" />
-                                <Label text="ISBN (apenas dígitos):">
+                                <Label text="ISBN (Apenas números):">
                                     <VBox.margin>
                                         <Insets top="10.0" />
                                     </VBox.margin>
@@ -71,10 +71,10 @@
                                     <TextField fx:id="tfEstoque" promptText="10" />
                                     <BorderPane>
                                         <right>
-                                            <Button mnemonicParsing="false" text="CADASTRAR LIVRO" BorderPane.alignment="CENTER" />
+                                            <Button mnemonicParsing="false" onAction="#cadastraLivro" text="CADASTRAR LIVRO" BorderPane.alignment="CENTER" />
                                         </right>
                                         <left>
-                                            <Button mnemonicParsing="false" text="VOLTAR" BorderPane.alignment="CENTER" />
+                                            <Button mnemonicParsing="false" onAction="#voltar" text="VOLTAR" BorderPane.alignment="CENTER" />
                                         </left>
                                         <VBox.margin>
                                             <Insets top="20.0" />
