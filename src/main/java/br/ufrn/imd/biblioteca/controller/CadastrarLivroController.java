@@ -1,6 +1,7 @@
 package br.ufrn.imd.biblioteca.controller;
 
 import br.ufrn.imd.biblioteca.App;
+import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
