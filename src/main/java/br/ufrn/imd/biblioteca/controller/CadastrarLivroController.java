@@ -40,7 +40,7 @@ public class CadastrarLivroController {
       tfTitulo.getText(),
       tfAutor.getText(),
       tfAssunto.getText(),
-      dfISBN.getText(),
+      tfISBN.getText(),
       tfAno.getText(),
       tfEstoque.getText()
     );
@@ -66,4 +66,20 @@ public class CadastrarLivroController {
            || tfEstoque.getText().isEmpty();
   }
 
+  // Volta para a tela de livros.
+  @FXML
+  private void voltar() throws IOException {
+    App.trocarTela("livros");
+  }
+
+  // Limpa todos os campos de entrada
+  @FXML
+  private void limparCampos() {
+    tfTitulo.clear();
+    tfAutor.clear();
+    tfAssunto.clear();
+    tfISBN.clear();
+    tfAno.clear();
+    tfEstoque.clear();
+  }
 }
