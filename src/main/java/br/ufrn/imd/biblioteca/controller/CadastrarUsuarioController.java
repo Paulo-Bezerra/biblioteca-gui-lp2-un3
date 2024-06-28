@@ -60,7 +60,7 @@ public class CadastrarUsuarioController {
   @FXML
   private void cadastraEstudante() {
     if (camposUsuarioVazios() || tfCurso.getText().isEmpty()) {
-      Alerta.exibirAlerta("Cadastro", "Preencha todos os campos!");
+      Alerta.exibirAviso("Cadastro", "Preencha todos os campos!");
       return;
     }
 
@@ -73,12 +73,12 @@ public class CadastrarUsuarioController {
     );
 
     if (cadastrou) {
-      Alerta.exibirAlerta("Cadastro", "Estundante cadastrado com sucesso!");
+      Alerta.exibirInformacao("Cadastro", "Estundante cadastrado com sucesso!");
 
       // caso fique melhor limpar os campos depos de cadastrar.
       // limparCampos();
     } else {
-      Alerta.exibirAlerta("Cadastro", "Não foi possivel cadastrar o estudante!");
+      Alerta.exibirErro("Cadastro", "Não foi possivel cadastrar o estudante!");
     }
   }
 
@@ -86,7 +86,7 @@ public class CadastrarUsuarioController {
   @FXML
   private void cadastrarProfessor() {
     if (camposUsuarioVazios() || tfDepartamento.getText().isEmpty()) {
-      Alerta.exibirAlerta("Cadastro", "Preencha todos os campos!");
+      Alerta.exibirAviso("Cadastro", "Preencha todos os campos!");
       return;
     }
 
@@ -99,12 +99,12 @@ public class CadastrarUsuarioController {
     );
 
     if (cadastrou) {
-      Alerta.exibirAlerta("Cadastro", "Professor cadastrado com sucesso!");
+      Alerta.exibirInformacao("Cadastro", "Professor cadastrado com sucesso!");
 
       // caso fique melhor limpar os campos depos de cadastrar.
       // limparCampos();
     } else {
-      Alerta.exibirAlerta("Cadastro", "Não foi possivel cadastrar o professor!");
+      Alerta.exibirErro("Cadastro", "Não foi possivel cadastrar o professor!");
     }
   }
 
@@ -112,7 +112,7 @@ public class CadastrarUsuarioController {
   @FXML
   private void cadastrarBiblitecario() {
     if (camposUsuarioVazios() || tfLogin.getText().isEmpty() || pfSenha.getText().isEmpty()) {
-      Alerta.exibirAlerta("Cadastro", "Preencha todos os campos!");
+      Alerta.exibirAviso("Cadastro", "Preencha todos os campos!");
       return;
     }
     boolean cadastrou = OperacoesUsuarios.cadastrarBiliotecario(
@@ -124,12 +124,12 @@ public class CadastrarUsuarioController {
       pfSenha.getText()
     );
     if (cadastrou) {
-      Alerta.exibirAlerta("Cadastro", "Bibliotecário cadastrado com sucesso!");
+      Alerta.exibirInformacao("Cadastro", "Bibliotecário cadastrado com sucesso!");
 
       // caso fique melhor limpar os campos depos de cadastrar.
       // limparCampos();
     } else {
-      Alerta.exibirAlerta("Cadastro", "Não foi possivel cadastrar o bibliotecário!");
+      Alerta.exibirErro("Cadastro", "Não foi possivel cadastrar o bibliotecário!");
     }
   }
 

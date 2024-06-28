@@ -57,4 +57,8 @@ public class OperacoesUsuarios {
 public static int getNumUsuarios() {
     return getUR().getUsuarios().size();
 }
+
+  public static Usuario getUsuario(String matricula) {
+    return getUR().getUsuario(matricula);
+  }
 }

@@ -1,7 +1,6 @@
 package br.ufrn.imd.biblioteca.repository;
 
 import br.ufrn.imd.biblioteca.model.Livro;
-import br.ufrn.imd.biblioteca.model.Usuario;
 
 import java.io.Serializable;
 import java.util.ArrayList;
