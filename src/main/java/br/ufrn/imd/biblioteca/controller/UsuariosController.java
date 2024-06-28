@@ -94,29 +94,41 @@ public class UsuariosController {
   private void mostrarDetalhes() {
     String saida;
     UsuarioDTO user = lvUsuarios.getSelectionModel().getSelectedItem();
+    String modelo = """
+      Nome: %s
+      CPF: %s
+      Matrícula: %s
+      Data de nascimento: %s
+      %s: %s""";
     switch (OperacoesUsuarios.getUsuario(user.matricula())) {
       case Estudante e -> {
-        saida = "Nome: " + e.getNome() + "\n" +
-          "CPF: " + e.getCpf() + "\n" +
-          "Matrícula: " + e.getMatricula() + "\n" +
-          "Data de nascimento: " + Tratamento.dataString(e.getDataNascimento()) + "\n" +
-          "Curso: " + e.getCurso();
+        saida = String.format(modelo,
+          e.getNome(),
+          e.getCpf(),
+          e.getMatricula(),
+          Tratamento.dataString(e.getDataNascimento()),
+          "Curso", e.getCurso()
+        );
         Alerta.exibirInformacao("Dados do estudante", saida);
       }
       case Professor p -> {
-        saida = "Nome: " + p.getNome() + "\n" +
-          "CPF: " + p.getCpf() + "\n" +
-          "Matrícula: " + p.getMatricula() + "\n" +
-          "Data de nascimento: " + Tratamento.dataString(p.getDataNascimento()) + "\n" +
-          "Departamento: " + p.getDepartamento();
+        saida = String.format(modelo,
+          p.getNome(),
+          p.getCpf(),
+          p.getMatricula(),
+          Tratamento.dataString(p.getDataNascimento()),
+          "Departamento", p.getDepartamento()
+        );
         Alerta.exibirInformacao("Dados do professor", saida);
       }
       case Bibliotecario b -> {
-        saida = "Nome: " + b.getNome() + "\n" +
-          "CPF: " + b.getCpf() + "\n" +
-          "Matrícula: " + b.getMatricula() + "\n" +
-          "Data de nascimento: " + Tratamento.dataString(b.getDataNascimento()) + "\n" +
-          "Login: " + b.getLogin();
+        saida = String.format(modelo,
+          b.getNome(),
+          b.getCpf(),
+          b.getMatricula(),
+          Tratamento.dataString(b.getDataNascimento()),
+          "Login", b.getLogin()
+        );
         Alerta.exibirInformacao("Dados do biblitecário", saida);
       }
       default -> {

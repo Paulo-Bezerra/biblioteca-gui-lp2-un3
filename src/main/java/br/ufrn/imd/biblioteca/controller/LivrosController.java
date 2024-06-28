@@ -7,6 +7,7 @@ import java.util.List;
 
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.dto.LivroDTO;
+import br.ufrn.imd.biblioteca.model.Livro;
 import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
@@ -89,7 +90,28 @@ public class LivrosController {
 
   @FXML
   private void mostrarDetalhes() {
-    
+    LivroDTO livro = lvLivros.getSelectionModel().getSelectedItem();
+    Livro l = OperacoesLivros.getLivro(livro.isbn());
+    if (l == null) {
+      return;
+    }
+    String modelo = """
+      Título: %s
+      Autor: %s
+      Assunto: %s
+      ISBN: %s
+      Ano: %d
+      Estoque: %d""";
+
+    String saida = String.format(modelo,
+      l.getTitulo(),
+      l.getAutor(),
+      l.getAssunto(),
+      l.getIsbn(),
+      l.getAno(),
+      l.getEstoque()
+    );
+    Alerta.exibirInformacao("Dados do livro", saida);
   }
 
   @FXML
