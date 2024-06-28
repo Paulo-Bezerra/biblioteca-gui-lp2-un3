@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/ufrn.png" />
+                  <Image url="@../images/ufrn-100x29.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" prefWidth="100.0" text="Biblioteca do IMD" />
@@ -41,7 +41,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/metropole.png" />
+                  <Image url="@../images/metropole-200x48.png" />
                </image>
                <VBox.margin>
                   <Insets />
