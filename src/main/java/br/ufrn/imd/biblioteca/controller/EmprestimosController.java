@@ -10,6 +10,10 @@ import java.io.IOException;
 public class EmprestimosController {
   // Métodos para navegação entre telas
   @FXML
+  private void cadastraEmprestimo() throws IOException {
+    App.trocarTela("cadastrar-emprestimo");
+  }
+  @FXML
   private void inicio() throws IOException {
     App.trocarTela("inicio");
   }

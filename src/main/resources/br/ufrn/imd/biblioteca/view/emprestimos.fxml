@@ -96,7 +96,7 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <Button mnemonicParsing="false" text="CADASTRAR" />
+                        <Button mnemonicParsing="false" onAction="#cadastraEmprestimo" text="CADASTRAR" />
                         <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" text="DETALHES">
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" />
