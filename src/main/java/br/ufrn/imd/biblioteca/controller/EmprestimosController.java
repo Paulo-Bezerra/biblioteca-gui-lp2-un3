@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class EmprestimosController {
-  private static FiltroPesquisa filtroPesquisa;
+  private static FiltroPesquisa filtroPesquisa = FiltroPesquisa.MATRICULA;
   private static List<EmprestimoDTO> listaEmprestimos = new ArrayList<>();
   private static List<EmprestimoDTO> listaAtrasos = new ArrayList<>();
   // Elementos da interface gráfica.
@@ -81,7 +81,13 @@ public class EmprestimosController {
 
   @FXML
   private void buscarEmprestimos() {
-
+    if (tfBusca.getText().isEmpty()) {
+      return;
+    }
+    switch (filtroPesquisa) {
+      case MATRICULA -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosAtradosPorMatricula(tfBusca.getText()));
+      case ISBN -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosAtradosPorIsbn(tfBusca.getText()));
+    }
   }
 
   // Métodos para navegação entre telas

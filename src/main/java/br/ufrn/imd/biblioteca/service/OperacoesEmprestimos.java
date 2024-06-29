@@ -45,11 +45,14 @@ public class OperacoesEmprestimos {
 
     int maxEmprestimos = maximoEmprestimos(u);
     int quantEmprestimos = getER().quantidadeEmprestimoPorMatricula(matricula);
-    if (quantEmprestimos >= maxEmprestimos) return u.getNome() + " já possui o máximo de emprestimo (" + quantEmprestimos + "/" + maxEmprestimos + ")!";
+    if (quantEmprestimos >= maxEmprestimos)
+      return u.getNome() + " já possui o máximo de emprestimo (" + quantEmprestimos + "/" + maxEmprestimos + ")!";
 
-    if (usuarioPossuiLivro(matricula, isbn)) return u.getNome() + " já possui um emprestimo do livro \"" + l.getTitulo() + "\"!";
+    if (usuarioPossuiLivro(matricula, isbn))
+      return u.getNome() + " já possui um emprestimo do livro \"" + l.getTitulo() + "\"!";
 
-    if (getER().quantidadeEmprestimoPorIsbn(isbn) == l.getEstoque()) return "O livro \"" + l.getTitulo() + "\" não está disponível!";
+    if (getER().quantidadeEmprestimoPorIsbn(isbn) == l.getEstoque())
+      return "O livro \"" + l.getTitulo() + "\" não está disponível!";
 
     LocalDate dataDevolucao = calcularDataDevolucao(dataEmprestimo, u);
 
@@ -63,7 +66,7 @@ public class OperacoesEmprestimos {
     }
   }
 
- public static boolean usuarioPossuiLivro(String matricula, String isbn) {
+  public static boolean usuarioPossuiLivro(String matricula, String isbn) {
     if (getER().quantidadeEmprestimoPorMatricula(matricula) == 0) return false;
     for (Emprestimo e : getER().getEmprestimosPorMatricula(matricula)) {
       if (e.getIsbn().equals(isbn)) return true;
@@ -123,6 +126,78 @@ public class OperacoesEmprestimos {
     ArrayList<EmprestimoDTO> emprestimosDTO = new ArrayList<>();
     // Ordena os empréstimos do mais novo para o mais velho
     emprestimos.sort(Comparator.comparing(Emprestimo::getDataDevolucao).reversed());
+    return verificarEmprestimosAtrasados(emprestimos, emprestimosDTO);
+  }
+
+  public static boolean removerEmprestimo(String matricula, String isbn) {
+    return isbn != null && getER().removerEmprestimo(matricula, isbn);
+  }
+
+  public static int quantidadeEmprestimos() {
+    return getER().quantidadeEmprestimos();
+  }
+
+  public static Emprestimo getEmprestimo(String matricula, String isbn) {
+    return getER().getEmprestimo(matricula, isbn);
+  }
+
+  // Retorna a lista de todos os empréstimos ativos da matricula.
+  public static List<EmprestimoDTO> listarEmprestimosPorMatricula(String matricula) {
+    List<Emprestimo> emprestimos = getER().getEmprestimosPorMatricula(matricula);
+    ArrayList<EmprestimoDTO> emprestimosDTO = new ArrayList<>();
+    // Ordena os empréstimos do mais novo para o mais velho
+    emprestimos.sort(Comparator.comparing(Emprestimo::getDataEmprestimo).reversed());
+    for (Emprestimo e : emprestimos) {
+      emprestimosDTO.add(new EmprestimoDTO(
+        getUR().getUsuario(e.getMatricula()).getNome(),
+        e.getMatricula(),
+        getLR().getLivro(e.getIsbn()).getTitulo(),
+        e.getIsbn(),
+        Tratamento.dataString(e.getDataEmprestimo()),
+        Tratamento.dataString(e.getDataDevolucao()))
+      );
+    }
+    return emprestimosDTO;
+  }
+
+  // Retorna a lista de todos os atrasos da matrícula.
+  public static List<EmprestimoDTO> listarEmprestimosAtradosPorMatricula(String matricula) {
+    List<Emprestimo> emprestimos = getER().getEmprestimosPorMatricula(matricula);
+    ArrayList<EmprestimoDTO> emprestimosDTO = new ArrayList<>();
+    // Ordena os empréstimos do mais novo para o mais velho
+    emprestimos.sort(Comparator.comparing(Emprestimo::getDataDevolucao).reversed());
+    return verificarEmprestimosAtrasados(emprestimos, emprestimosDTO);
+  }
+
+  // Retorna a lista de todos os empréstimos ativos do ISBN.
+  public static List<EmprestimoDTO> listarEmprestimosPorIsbn(String isbn) {
+    List<Emprestimo> emprestimos = getER().getEmprestimosIsbn(isbn);
+    ArrayList<EmprestimoDTO> emprestimosDTO = new ArrayList<>();
+    // Ordena os empréstimos do mais novo para o mais velho
+    emprestimos.sort(Comparator.comparing(Emprestimo::getDataEmprestimo).reversed());
+    for (Emprestimo e : emprestimos) {
+      emprestimosDTO.add(new EmprestimoDTO(
+        getUR().getUsuario(e.getMatricula()).getNome(),
+        e.getMatricula(),
+        getLR().getLivro(e.getIsbn()).getTitulo(),
+        e.getIsbn(),
+        Tratamento.dataString(e.getDataEmprestimo()),
+        Tratamento.dataString(e.getDataDevolucao()))
+      );
+    }
+    return emprestimosDTO;
+  }
+
+  // Retorna a lista de todos os atrasos do ISBN.
+  public static List<EmprestimoDTO> listarEmprestimosAtradosPorIsbn(String isbn) {
+    List<Emprestimo> emprestimos = getER().getEmprestimosIsbn(isbn);
+    ArrayList<EmprestimoDTO> emprestimosDTO = new ArrayList<>();
+    // Ordena os empréstimos do mais novo para o mais velho
+    emprestimos.sort(Comparator.comparing(Emprestimo::getDataDevolucao).reversed());
+    return verificarEmprestimosAtrasados(emprestimos, emprestimosDTO);
+  }
+
+  private static List<EmprestimoDTO> verificarEmprestimosAtrasados(List<Emprestimo> emprestimos, ArrayList<EmprestimoDTO> emprestimosDTO) {
     for (Emprestimo e : emprestimos) {
       if (e.getDataDevolucao().isBefore(LocalDate.now())) {
         emprestimosDTO.add(new EmprestimoDTO(
@@ -138,15 +213,4 @@ public class OperacoesEmprestimos {
     return emprestimosDTO;
   }
 
-  public static boolean removerEmprestimo(String matricula, String isbn) {
-    return isbn != null && getER().removerEmprestimo(matricula, isbn);
-  }
-
-  public static int quantidadeEmprestimos() {
-    return getER().quantidadeEmprestimos();
-  }
-
-  public static Emprestimo getEmprestimo(String matricula, String isbn) {
-    return getER().getEmprestimo(matricula, isbn);
-  }
 }

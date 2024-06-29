@@ -119,7 +119,11 @@ public class EmprestimoRepository implements Serializable {
 
   // Retorna uma lista com todos os empréstimos associados ao ISBN fornecido.
   public List<Emprestimo> getEmprestimosIsbn(String isbn) {
-    return new ArrayList<>(isbn_ER.get(isbn));
+    try {
+      return new ArrayList<>(isbn_ER.get(isbn));
+    } catch (Exception ignored) {
+      return new ArrayList<>();
+    }
   }
 
   // Retorna o empréstimo associado ao par matrícula e ISBN fornecido.
