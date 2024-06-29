@@ -79,7 +79,7 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Digite o nome do usuário." HBox.hgrow="ALWAYS">
+                        <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Digite o nome do usuário" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

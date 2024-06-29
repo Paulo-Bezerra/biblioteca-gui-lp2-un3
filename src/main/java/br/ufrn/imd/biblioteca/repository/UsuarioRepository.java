@@ -48,7 +48,6 @@ public class UsuarioRepository implements Serializable {
     return true;
   }
 
-
   // Retorna a lista de todos os usuários cadastrados.
   public List<Usuario> getUsuarios() {
     return new ArrayList<>(matriculas_UR.values());

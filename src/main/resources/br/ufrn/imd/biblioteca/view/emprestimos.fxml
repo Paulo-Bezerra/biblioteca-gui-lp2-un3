@@ -71,7 +71,8 @@
                   </Label>
                   <HBox>
                      <children>
-                        <Button mnemonicParsing="false" text="LISTAR TODOS" />
+                        <Button mnemonicParsing="false" onAction="#listarEmprestimos" text="LISTAR TODOS" />
+                        <Button mnemonicParsing="false" onAction="#listarEmprestimosAtrasados" text="LISTAR TODOS EM ATRASO" />
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />
@@ -84,7 +85,7 @@
                               <Insets />
                            </HBox.margin>
                         </TextField>
-                        <Button minWidth="60.0" mnemonicParsing="false" text="BUSCAR">
+                        <Button minWidth="60.0" mnemonicParsing="false" onAction="#buscarEmprestimos" text="BUSCAR">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
@@ -102,7 +103,7 @@
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="btRemover" disable="true" mnemonicParsing="false" text="REMOVER" />
+                        <Button fx:id="btRemover" disable="true" mnemonicParsing="false" text="DEVOLUÇÃO" />
                      </children>
                      <VBox.margin>
                         <Insets top="5.0" />

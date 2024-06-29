@@ -127,7 +127,7 @@ public class UsuariosController {
           b.getCpf(),
           b.getMatricula(),
           Tratamento.dataString(b.getDataNascimento()),
-          "Login", b.getLogin()
+          "Usuário", b.getLogin()
         );
         Alerta.exibirInformacao("Dados do biblitecário", saida);
       }

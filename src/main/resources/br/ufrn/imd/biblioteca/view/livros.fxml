@@ -84,7 +84,7 @@
                               <Insets />
                            </HBox.margin>
                         </TextField>
-                        <Button minWidth="60.0" mnemonicParsing="false" text="BUSCAR">
+                        <Button minWidth="60.0" mnemonicParsing="false" onAction="#buscarLivro" text="BUSCAR">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>

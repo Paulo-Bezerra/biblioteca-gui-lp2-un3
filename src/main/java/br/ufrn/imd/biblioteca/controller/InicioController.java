@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
+import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -11,6 +12,9 @@ public class InicioController {
   // Elementos da interface gráfica.
   @FXML
   private Label lbNumUsuarios;
+
+  @FXML
+  private Label lbNumLivros;
 
   // Métodos para navegação entre telas
   @FXML
@@ -36,5 +40,7 @@ public class InicioController {
   @FXML
   void initialize() {
     lbNumUsuarios.setText("Nº de usuários: " + OperacoesUsuarios.quantidadeUsuarios());
+    lbNumLivros.setText("Tamanho do acervo de livros: " + OperacoesLivros.quantidadeLivros());
   }
+  
 }

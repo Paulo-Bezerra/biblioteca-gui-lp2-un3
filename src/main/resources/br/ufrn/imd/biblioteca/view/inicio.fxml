@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.biblioteca.controller.InicioController">
    <left>
@@ -47,11 +48,17 @@
                   <Insets />
                </VBox.margin>
             </ImageView>
-            <Label text="Início" />
-            <Label fx:id="lbNumUsuarios" text="Nº de usuários: 5" />
-            <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 100" />
-            <Label fx:id="lbNumEmpretimos" text="Nº de empréstimos: 10" />
-            <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 2" />
+            <Label text="Início">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin></Label>
+            <Label fx:id="lbNumUsuarios" text="Nº de usuários: 0" />
+            <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 0" />
+            <Label fx:id="lbNumEmpretimos" text="Nº de empréstimos: 0" />
+            <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 0" />
          </children>
          <BorderPane.margin>
             <Insets />

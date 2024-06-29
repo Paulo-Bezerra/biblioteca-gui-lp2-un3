@@ -36,7 +36,7 @@
                         <Label fx:id="lbInvalida" alignment="CENTER" text="Credenciais inválidas." textFill="#eb0537" visible="false" />
                      </children>
                   </HBox>
-            <Label text="Login:">
+            <Label text="Usuário:">
               <font>
                 <Font size="18.0" />
               </font>

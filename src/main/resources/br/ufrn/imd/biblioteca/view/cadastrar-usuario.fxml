@@ -118,7 +118,7 @@
                         </VBox>
                         <VBox fx:id="ctBibliotecario" visible="false">
                            <children>
-                              <Label text="Login:" />
+                              <Label text="Usuário:" />
                               <TextField fx:id="tfLogin" promptText="joaosilva" />
                               <Label text="Senha:">
                                  <VBox.margin>

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -30,43 +31,25 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <VBox maxWidth="600.0">
+                <VBox maxWidth="600.0" prefHeight="263.0" prefWidth="300.0">
                     <children>
-                        <Label text="Título:" />
-                        <TextField fx:id="tfTitulo" promptText="João Silva" />
-                        <Label text="Autor:">
+                        <Label text="Matrícula do usuário:" />
+                        <TextField fx:id="tfTitulo" promptText="123" />
+                        <Label text="ISBN do livro:">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="tfAutor" promptText="José de Alencar" />
-                        <Label layoutX="10.0" layoutY="69.0" text="Assunto:">
+                        <TextField fx:id="tfAutor" promptText="123" />
+                        <Label layoutX="10.0" layoutY="69.0" text="Data do empréstimo:">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="tfAssunto" layoutX="10.0" layoutY="86.0" promptText="Programacao" />
-                        <Label text="ISBN (Apenas números):">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </Label>
-                        <TextField fx:id="tfISBN" promptText="123456789" />
-                        <Label layoutX="30.0" layoutY="191.0" text="Ano de publicação:">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </Label>
-                        <TextField fx:id="tfAno" promptText="2024" />
-                        <Label text="Quantidade em estoque:">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </Label>
-                        <TextField fx:id="tfEstoque" promptText="10" />
+                  <DatePicker />
                         <BorderPane>
                             <right>
-                                <Button mnemonicParsing="false" text="CADASTRAR LIVRO" BorderPane.alignment="CENTER" />
+                                <Button mnemonicParsing="false" text="REALIZAR EMPRÉSTIMO" BorderPane.alignment="CENTER" />
                             </right>
                             <left>
                                 <Button mnemonicParsing="false" onAction="#voltar" text="VOLTAR" BorderPane.alignment="CENTER" />
