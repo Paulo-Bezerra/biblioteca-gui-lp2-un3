@@ -61,7 +61,6 @@ public class App extends Application {
 //    OperacoesLivros.cadastrarLivro("O Alquimista", "Paulo Coelho", "Ficção Espiritual", "0061122416", "1988", "30");
 //    OperacoesLivros.cadastrarLivro("O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Literatura Infantil", "8572326023", "1943", "22");
 
-
     // Inicializa a aplicação.
     launch();
 

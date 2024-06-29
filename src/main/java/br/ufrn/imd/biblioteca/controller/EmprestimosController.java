@@ -89,7 +89,8 @@ public class EmprestimosController {
   @FXML
   private void removerEmprestimo() {
     EmprestimoDTO emprestimo = lvEmprestimos.getSelectionModel().getSelectedItem();
-    if (emprestimo != null && Alerta.exibirConfirmacao("Devolução", "Devolver: " + emprestimo + ".")) {
+    if (emprestimo != null && Alerta.exibirConfirmacao("Devolução", "Devolver: " + emprestimo.titulo() + 
+        "\nData do empréstimo: " + emprestimo.dataEmprestimo() + "\nPrazo: " + emprestimo.dataDevolucao())) {
       if (OperacoesEmprestimos.removerEmprestimo(emprestimo.matricula(), emprestimo.isbn())) {
         lvEmprestimos.getItems().remove(emprestimo);
         Alerta.exibirInformacao("Devolução", "Devolução realizada com sucesso!");
@@ -144,6 +145,4 @@ public class EmprestimosController {
   private void sair() throws IOException {
     App.trocarTela("login");
   }
-
-  
 }
