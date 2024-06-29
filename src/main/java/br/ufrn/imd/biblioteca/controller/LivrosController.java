@@ -8,6 +8,7 @@ import java.util.List;
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.dto.LivroDTO;
 import br.ufrn.imd.biblioteca.model.Livro;
+import br.ufrn.imd.biblioteca.service.OperacoesEmprestimos;
 import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
@@ -105,7 +106,8 @@ public class LivrosController {
       Assunto: %s
       ISBN: %s
       Ano: %d
-      Estoque: %d""";
+      Estoque: %d
+      Disponivel: %d""";
 
     String saida = String.format(modelo,
       l.getTitulo(),
@@ -113,7 +115,8 @@ public class LivrosController {
       l.getAssunto(),
       l.getIsbn(),
       l.getAno(),
-      l.getEstoque()
+      l.getEstoque(),
+      OperacoesLivros.quantidadeLivrosDisponivel(l.getIsbn())
     );
     Alerta.exibirInformacao("Dados do livro", saida);
   }
