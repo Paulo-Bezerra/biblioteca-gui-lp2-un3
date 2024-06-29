@@ -10,11 +10,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.IOException;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class EmprestimosController {
   private static FiltroPesquisa filtroPesquisa;
+  private static List<EmprestimoDTO> listaEmprestimos = new ArrayList<>();
+  private static List<EmprestimoDTO> listaAtrasos = new ArrayList<>();
   // Elementos da interface gráfica.
   @FXML
   private ToggleGroup tgFiltroPesquisa;
@@ -64,17 +65,20 @@ public class EmprestimosController {
   // Lista todos os emprestimos ativos e exibe na ListView
   @FXML
   private void listarEmprestimos() {
-    List<EmprestimoDTO> emprestimos = OperacoesEmprestimos.listarEmprestimos();
-    emprestimos.sort(Comparator.comparing(EmprestimoDTO::matricula));
-    lvEmprestimos.getItems().setAll(emprestimos);
+    if (listaEmprestimos.isEmpty()) {
+      listaEmprestimos = OperacoesEmprestimos.listarEmprestimos();
+    }
+    lvEmprestimos.getItems().setAll(listaEmprestimos);
   }
 
   @FXML
   private void listarEmprestimosAtrasados() {
-    List<EmprestimoDTO> atrasados = OperacoesEmprestimos.listarEmprestimosAtrados();
-    atrasados.sort(Comparator.comparing(EmprestimoDTO::nome));
-    lvEmprestimos.getItems().setAll(atrasados);
+    if (listaAtrasos.isEmpty()) {
+      listaAtrasos = OperacoesEmprestimos.listarEmprestimosAtrados();
+    }
+    lvEmprestimos.getItems().setAll(listaAtrasos);
   }
+
   @FXML
   private void buscarEmprestimos() {
 
@@ -93,6 +97,8 @@ public class EmprestimosController {
         "\nData do empréstimo: " + emprestimo.dataEmprestimo() + "\nPrazo: " + emprestimo.dataDevolucao())) {
       if (OperacoesEmprestimos.removerEmprestimo(emprestimo.matricula(), emprestimo.isbn())) {
         lvEmprestimos.getItems().remove(emprestimo);
+        listaEmprestimos.clear();
+        listaAtrasos.clear();
         Alerta.exibirInformacao("Devolução", "Devolução realizada com sucesso!");
       } else {
         Alerta.exibirErro("Devolução", "Não foi possivel realizar a devolução do livro!");
@@ -102,28 +108,28 @@ public class EmprestimosController {
 
   @FXML
   private void mostrarDetalhes() {
-    EmprestimoDTO emprestimo = lvEmprestimos.getSelectionModel().getSelectedItem();
-    Emprestimo e = OperacoesEmprestimos.getEmprestimo(emprestimo.matricula(), emprestimo.isbn());
+    EmprestimoDTO e = lvEmprestimos.getSelectionModel().getSelectedItem();
     if (e == null) {
       return;
     }
+
     String modelo = """
       Nome: %s
       Matrícula: %s
       Livro: %s
       ISBN: %s
-      Data do empréstimo: %d
-      Data da devolução: %d""";
+      Data do empréstimo: %s
+      Data da devolução: %s""";
 
-//    String saida = String.format(modelo,
-//      e.getNome(),
-//      e.getMatricula(),
-//      e.getTitulo(),
-//      e.getIsbn(),
-//      e.getDataEmprestimo(),
-//      e.getDataDevolucao()
-//    );
-//    Alerta.exibirInformacao("Dados do empréstimo", saida);
+    String saida = String.format(modelo,
+      e.nome(),
+      e.matricula(),
+      e.titulo(),
+      e.isbn(),
+      e.dataEmprestimo(),
+      e.dataDevolucao()
+    );
+    Alerta.exibirInformacao("Dados do empréstimo", saida);
   }
 
   @FXML

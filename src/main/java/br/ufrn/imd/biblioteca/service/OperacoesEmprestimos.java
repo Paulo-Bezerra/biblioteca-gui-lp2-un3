@@ -10,6 +10,7 @@ import br.ufrn.imd.biblioteca.util.Tratamento;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class OperacoesEmprestimos {
@@ -99,9 +100,12 @@ public class OperacoesEmprestimos {
 
   // Retorna a lista de todos os empréstimos ativos.
   public static List<EmprestimoDTO> listarEmprestimos() {
-    ArrayList<EmprestimoDTO> emprestimos = new ArrayList<>();
-    for (Emprestimo e : getER().getEmprestimos()) {
-      emprestimos.add(new EmprestimoDTO(
+    List<Emprestimo> emprestimos = getER().getEmprestimos();
+    ArrayList<EmprestimoDTO> emprestimosDTO = new ArrayList<>();
+    // Ordena os empréstimos do mais novo para o mais velho
+    emprestimos.sort(Comparator.comparing(Emprestimo::getDataEmprestimo).reversed());
+    for (Emprestimo e : emprestimos) {
+      emprestimosDTO.add(new EmprestimoDTO(
         getUR().getUsuario(e.getMatricula()).getNome(),
         e.getMatricula(),
         getLR().getLivro(e.getIsbn()).getTitulo(),
@@ -110,25 +114,28 @@ public class OperacoesEmprestimos {
         Tratamento.dataString(e.getDataDevolucao()))
       );
     }
-    return emprestimos;
+    return emprestimosDTO;
   }
 
   // Retorna a lista de todos os empréstimos ativos.
   public static List<EmprestimoDTO> listarEmprestimosAtrados() {
-    ArrayList<EmprestimoDTO> emprestimos = new ArrayList<>();
-    for (Emprestimo e : getER().getEmprestimos()) {
+    List<Emprestimo> emprestimos = getER().getEmprestimos();
+    ArrayList<EmprestimoDTO> emprestimosDTO = new ArrayList<>();
+    // Ordena os empréstimos do mais novo para o mais velho
+    emprestimos.sort(Comparator.comparing(Emprestimo::getDataDevolucao).reversed());
+    for (Emprestimo e : emprestimos) {
       if (e.getDataDevolucao().isBefore(LocalDate.now())) {
-        emprestimos.add(new EmprestimoDTO(
+        emprestimosDTO.add(new EmprestimoDTO(
           getUR().getUsuario(e.getMatricula()).getNome(),
           e.getMatricula(),
           getLR().getLivro(e.getIsbn()).getTitulo(),
           e.getIsbn(),
           Tratamento.dataString(e.getDataEmprestimo()),
-          Tratamento.dataString(e.getDataDevolucao()))
-        );
+          Tratamento.dataString(e.getDataDevolucao())
+        ));
       }
     }
-    return emprestimos;
+    return emprestimosDTO;
   }
 
   public static boolean removerEmprestimo(String matricula, String isbn) {
