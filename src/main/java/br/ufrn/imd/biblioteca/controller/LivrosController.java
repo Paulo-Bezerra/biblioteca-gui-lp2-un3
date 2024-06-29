@@ -38,6 +38,7 @@ public class LivrosController {
         btDetalhes.setDisable(novoValor == null);
       }
     );
+
     lvLivros.setOnMouseClicked(mouseEvent -> {
       if (mouseEvent.getClickCount() == 2) {
         mostrarDetalhes();
@@ -47,7 +48,7 @@ public class LivrosController {
 
   // Filtra o livro pelo isbn digitado no TextField de busca
   @FXML
-  private void buscarLivros() {
+  private void buscarLivro() {
     if (tfBusca.getText().trim().isEmpty()) {
       return;
     }
@@ -78,14 +79,17 @@ public class LivrosController {
   @FXML
   private void removerLivro() {
     LivroDTO livro = lvLivros.getSelectionModel().getSelectedItem();
-    if (livro != null && Alerta.exibirConfirmacao("Remoção", "Remover: " + livro + ".")) {
-      if (OperacoesLivros.removerLivro(livro.isbn())) {
-        lvLivros.getItems().remove(livro);
-        Alerta.exibirInformacao("Remoção", "Livro removido com sucesso!");
-      } else {
-        Alerta.exibirErro("Remoção", "Não foi possivel remover o livro!");
-      }
+    if (livro == null) return;
+    if (!Alerta.exibirConfirmacao("Remoção", "Remover: " + livro + "?")) {
+      Alerta.exibirAviso("Remoção", "Remoção cancelada!");
+      return;
     }
+    if (OperacoesLivros.removerLivro(livro.isbn())) {
+      lvLivros.getItems().remove(livro);
+      Alerta.exibirInformacao("Remoção", "Livro removido com sucesso!");
+      return;
+    }
+    Alerta.exibirErro("Remoção", "Não foi possivel remover o livro!");
   }
 
   @FXML

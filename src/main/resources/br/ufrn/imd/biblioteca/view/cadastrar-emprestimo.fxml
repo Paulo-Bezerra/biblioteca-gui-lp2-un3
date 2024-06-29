@@ -34,22 +34,22 @@
                 <VBox maxWidth="600.0" prefHeight="263.0" prefWidth="300.0">
                     <children>
                         <Label text="Matrícula do usuário:" />
-                        <TextField fx:id="tfTitulo" promptText="123" />
+                        <TextField fx:id="tfMatricula" promptText="123" />
                         <Label text="ISBN do livro:">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="tfAutor" promptText="123" />
+                        <TextField fx:id="tfIsbn" promptText="123" />
                         <Label layoutX="10.0" layoutY="69.0" text="Data do empréstimo:">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                  <DatePicker />
+                  <DatePicker fx:id="dtEmprestimo" />
                         <BorderPane>
                             <right>
-                                <Button mnemonicParsing="false" text="REALIZAR EMPRÉSTIMO" BorderPane.alignment="CENTER" />
+                                <Button mnemonicParsing="false" onAction="#cadastrarEmprestimo" text="REALIZAR EMPRÉSTIMO" BorderPane.alignment="CENTER" />
                             </right>
                             <left>
                                 <Button mnemonicParsing="false" onAction="#voltar" text="VOLTAR" BorderPane.alignment="CENTER" />

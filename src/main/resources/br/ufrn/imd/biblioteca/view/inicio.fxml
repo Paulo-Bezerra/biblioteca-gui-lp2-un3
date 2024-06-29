@@ -57,7 +57,7 @@
                </VBox.margin></Label>
             <Label fx:id="lbNumUsuarios" text="Nº de usuários: 0" />
             <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 0" />
-            <Label fx:id="lbNumEmpretimos" text="Nº de empréstimos: 0" />
+            <Label fx:id="lbNumEmprestimos" text="Nº de empréstimos: 0" />
             <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 0" />
          </children>
          <BorderPane.margin>

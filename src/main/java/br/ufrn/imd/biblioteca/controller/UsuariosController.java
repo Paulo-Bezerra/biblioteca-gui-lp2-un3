@@ -40,6 +40,7 @@ public class UsuariosController {
         btDetalhes.setDisable(novoValor == null);
       }
     );
+
     lvUsuarios.setOnMouseClicked(mouseEvent -> {
       if (mouseEvent.getClickCount() == 2) {
         mostrarDetalhes();
@@ -80,14 +81,17 @@ public class UsuariosController {
   @FXML
   private void removerUsuario() {
     UsuarioDTO usuario = lvUsuarios.getSelectionModel().getSelectedItem();
-    if (usuario != null && Alerta.exibirConfirmacao("Remoção", "Remover: " + usuario + ".")) {
-      if (OperacoesUsuarios.removerUsuario(usuario.matricula())) {
-        lvUsuarios.getItems().remove(usuario);
-        Alerta.exibirInformacao("Remoção", "Usuário removido com sucesso!");
-      } else {
-        Alerta.exibirErro("Remoção", "Não foi possivel remover o usuário!");
-      }
+    if (usuario == null) return;
+    if (!Alerta.exibirConfirmacao("Remoção", "Remover: " + usuario + "?")) {
+      Alerta.exibirAviso("Remoção", "Remoção cancelada!");
+      return;
     }
+    if (OperacoesUsuarios.removerUsuario(usuario.matricula())) {
+      lvUsuarios.getItems().remove(usuario);
+      Alerta.exibirInformacao("Remoção", "Usuário removido com sucesso!");
+      return;
+    }
+    Alerta.exibirErro("Remoção", "Não foi possivel remover o usuário!");
   }
 
   @FXML

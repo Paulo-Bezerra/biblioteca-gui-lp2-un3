@@ -71,7 +71,7 @@ public class CadastrarUsuarioController {
 
     dtNascimento.focusedProperty().addListener(
       (objObservado, valorAntigo, valorNovo) -> {
-        if (!valorNovo) { // Se o foco foi perdido.
+        if (!valorNovo && !dtNascimento.getEditor().getText().isEmpty()) { // Se o foco foi perdido.
           String dataString = dtNascimento.getEditor().getText();
           try {
             LocalDate.parse(dataString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));

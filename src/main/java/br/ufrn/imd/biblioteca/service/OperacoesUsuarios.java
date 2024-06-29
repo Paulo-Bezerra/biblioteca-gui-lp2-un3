@@ -6,6 +6,7 @@ import br.ufrn.imd.biblioteca.model.Bibliotecario;
 import br.ufrn.imd.biblioteca.model.Estudante;
 import br.ufrn.imd.biblioteca.model.Professor;
 import br.ufrn.imd.biblioteca.model.Usuario;
+import br.ufrn.imd.biblioteca.repository.EmprestimoRepository;
 import br.ufrn.imd.biblioteca.repository.UsuarioRepository;
 
 import java.time.LocalDate;
@@ -40,6 +41,9 @@ public class OperacoesUsuarios {
   private static boolean cadastarUsuario(Usuario usuario) {
     return getUR().cadastrarUsuario(usuario);
   }
+  private static EmprestimoRepository getER() {
+    return BancoDAO.getInstance().getER();
+  }
 
   // Retorna a lista de todos os usuários cadastrados.
   public static List<UsuarioDTO> listarUsuarios() {
@@ -51,12 +55,12 @@ public class OperacoesUsuarios {
   }
 
   public static boolean removerUsuario(String matricula) {
-    return matricula != null && getUR().removerUsuario(matricula);
+    return matricula != null && getER().quantidadeEmprestimoPorMatricula(matricula) == 0 && getUR().removerUsuario(matricula);
   }
 
-public static int quantidadeUsuarios() {
-    return getUR().quantidadeUsuarios();
-}
+  public static int quantidadeUsuarios() {
+      return getUR().quantidadeUsuarios();
+  }
 
   public static Usuario getUsuario(String matricula) {
     return getUR().getUsuario(matricula);

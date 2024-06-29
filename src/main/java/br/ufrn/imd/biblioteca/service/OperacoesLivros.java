@@ -3,6 +3,7 @@ package br.ufrn.imd.biblioteca.service;
 import br.ufrn.imd.biblioteca.dao.BancoDAO;
 import br.ufrn.imd.biblioteca.dto.LivroDTO;
 import br.ufrn.imd.biblioteca.model.Livro;
+import br.ufrn.imd.biblioteca.repository.EmprestimoRepository;
 import br.ufrn.imd.biblioteca.repository.LivroRepository;
 import br.ufrn.imd.biblioteca.util.Validacao;
 
@@ -13,6 +14,9 @@ public class OperacoesLivros {
   // Recupera o repostório de livro contida no BancoDAO.
   private static LivroRepository getLR() {
     return BancoDAO.getInstance().getLR();
+  }
+  private static EmprestimoRepository getER() {
+    return BancoDAO.getInstance().getER();
   }
 
   // Cria, valida e cadastra um livro. Retorna true se bem-sucedido.
@@ -35,7 +39,7 @@ public class OperacoesLivros {
   }
 
   public static boolean removerLivro(String isbn) {
-    return isbn != null && getLR().removerLivro(isbn);
+    return isbn != null && getER().quantidadeEmprestimoPorIsbn(isbn) == 0 && getLR().removerLivro(isbn);
   }
 
   public static int quantidadeLivros() {
@@ -44,5 +48,10 @@ public class OperacoesLivros {
 
   public static Livro getLivro(String isbn) {
     return getLR().getLivro(isbn);
+  }
+
+  public static int quantidadeLivrosDisponivel(String isbn) {
+    return getLR().getLivro(isbn).getEstoque() - getER().quantidadeEmprestimoPorIsbn(isbn);
+
   }
 }

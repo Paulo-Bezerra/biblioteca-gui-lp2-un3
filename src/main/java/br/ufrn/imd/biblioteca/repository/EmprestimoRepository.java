@@ -110,7 +110,11 @@ public class EmprestimoRepository implements Serializable {
 
   // Retorna uma lista com todos os empréstimos associados à matrícula fornecida.
   public List<Emprestimo> getEmprestimosPorMatricula(String matricula) {
-    return new ArrayList<>(mat_ER.get(matricula));
+    try {
+      return new ArrayList<>(mat_ER.get(matricula));
+    } catch (Exception ignore) {
+      return new ArrayList<>();
+    }
   }
 
   // Retorna uma lista com todos os empréstimos associados ao ISBN fornecido.

@@ -3,6 +3,7 @@ package br.ufrn.imd.biblioteca.controller;
 import java.io.IOException;
 
 import br.ufrn.imd.biblioteca.App;
+import br.ufrn.imd.biblioteca.service.OperacoesEmprestimos;
 import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
 import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import javafx.fxml.FXML;
@@ -15,6 +16,12 @@ public class InicioController {
 
   @FXML
   private Label lbNumLivros;
+
+  @FXML
+  private Label lbNumEmprestimos;
+
+  @FXML
+  private Label lbNumAtrasos;
 
   // Métodos para navegação entre telas
   @FXML
@@ -41,6 +48,8 @@ public class InicioController {
   void initialize() {
     lbNumUsuarios.setText("Nº de usuários: " + OperacoesUsuarios.quantidadeUsuarios());
     lbNumLivros.setText("Tamanho do acervo de livros: " + OperacoesLivros.quantidadeLivros());
+    lbNumEmprestimos.setText("Nº de empréstimo: " + OperacoesEmprestimos.quantidadeEmprestimos());
+    lbNumAtrasos.setText("Nº  de empréstimos em atraso: " + OperacoesEmprestimos.quantidadeEmprestimosAtrados());
   }
   
 }

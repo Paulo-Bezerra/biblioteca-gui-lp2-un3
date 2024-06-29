@@ -31,7 +31,7 @@ public class CadastrarLivroController {
   // Método para cadastrar um livro.
   @FXML
   private void cadastraLivro() {
-    if (camposLivroVazios() || tfEstoque.getText().isEmpty()) {
+    if (camposLivroVazios()) {
       Alerta.exibirAviso("Cadastro", "Preencha todos os campos!");
       return;
     }

@@ -2,25 +2,28 @@ package br.ufrn.imd.biblioteca.controller;
 
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.dto.EmprestimoDTO;
-import br.ufrn.imd.biblioteca.dto.LivroDTO;
 import br.ufrn.imd.biblioteca.model.Emprestimo;
-import br.ufrn.imd.biblioteca.model.Livro;
 import br.ufrn.imd.biblioteca.service.OperacoesEmprestimos;
-import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
-import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import br.ufrn.imd.biblioteca.util.Alerta;
-import br.ufrn.imd.biblioteca.util.Tratamento;
+import br.ufrn.imd.biblioteca.util.FiltroPesquisa;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 
 public class EmprestimosController {
+  private static FiltroPesquisa filtroPesquisa;
   // Elementos da interface gráfica.
+  @FXML
+  private ToggleGroup tgFiltroPesquisa;
+
+  @FXML
+  private RadioButton rbIsbn;
+
+  @FXML
+  private RadioButton rbMatricula;
   @FXML
   private TextField tfBusca;
 
@@ -35,6 +38,9 @@ public class EmprestimosController {
 
   @FXML
   private void initialize() {
+    tgFiltroPesquisa.selectedToggleProperty().addListener(
+      (objObservado, valorAntigo, valorNovo) -> atualizarFiltroPesquisa(valorNovo)
+    );
     lvEmprestimos.getSelectionModel().selectedItemProperty().addListener(
       (observado, antigoValor, novoValor) -> {
         btRemover.setDisable(novoValor == null);
@@ -48,12 +54,30 @@ public class EmprestimosController {
     });
   }
 
+  @FXML
+  private void atualizarFiltroPesquisa(Toggle novoValor) {
+    if (novoValor == null) return;
+    filtroPesquisa = (novoValor == rbMatricula) ? FiltroPesquisa.MATRICULA: FiltroPesquisa.ISBN;
+    tfBusca.setPromptText("Buscar por " + filtroPesquisa.getDescricao() + ".");
+  }
+
   // Lista todos os emprestimos ativos e exibe na ListView
   @FXML
   private void listarEmprestimos() {
     List<EmprestimoDTO> emprestimos = OperacoesEmprestimos.listarEmprestimos();
     emprestimos.sort(Comparator.comparing(EmprestimoDTO::matricula));
     lvEmprestimos.getItems().setAll(emprestimos);
+  }
+
+  @FXML
+  private void listarEmprestimosAtrasados() {
+    List<EmprestimoDTO> atrasados = OperacoesEmprestimos.listarEmprestimosAtrados();
+    atrasados.sort(Comparator.comparing(EmprestimoDTO::nome));
+    lvEmprestimos.getItems().setAll(atrasados);
+  }
+  @FXML
+  private void buscarEmprestimos() {
+
   }
 
   // Métodos para navegação entre telas
@@ -90,15 +114,15 @@ public class EmprestimosController {
       Data do empréstimo: %d
       Data da devolução: %d""";
 
-    String saida = String.format(modelo,
-      e.getNome(),
-      e.getMatricula(),
-      e.getTitulo(),
-      e.getIsbn(),
-      e.getDataEmprestimo(),
-      e.getDataDevolucao()
-    );
-    Alerta.exibirInformacao("Dados do empréstimo", saida);
+//    String saida = String.format(modelo,
+//      e.getNome(),
+//      e.getMatricula(),
+//      e.getTitulo(),
+//      e.getIsbn(),
+//      e.getDataEmprestimo(),
+//      e.getDataDevolucao()
+//    );
+//    Alerta.exibirInformacao("Dados do empréstimo", saida);
   }
 
   @FXML
