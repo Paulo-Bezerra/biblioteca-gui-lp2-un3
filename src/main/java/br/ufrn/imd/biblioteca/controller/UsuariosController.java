@@ -15,9 +15,14 @@ import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Popup;
 
 import static javafx.scene.input.KeyCode.*;
 
@@ -31,6 +36,9 @@ public class UsuariosController {
 
   @FXML
   private Button btRemover;
+
+  @FXML
+  private Label lbCopiado;
 
   @FXML
   private ListView<UsuarioDTO> lvUsuarios;
@@ -79,6 +87,27 @@ public class UsuariosController {
     List<UsuarioDTO> usuarios = OperacoesUsuarios.listarUsuarios();
     usuarios.sort(Comparator.comparing(UsuarioDTO::nome));
     lvUsuarios.getItems().setAll(usuarios);
+  }
+
+  @FXML
+  private void copiarMatricula(MouseEvent mouse) {
+    lbCopiado.setVisible(false);
+
+    // Verifica se o botão direito do mouse foi pressionado.
+    if (!mouse.isSecondaryButtonDown()) return;
+
+    try {
+      // Obtém a matrícula do item selecionado.
+      String matricula = lvUsuarios.getSelectionModel().getSelectedItem().matricula();
+
+      // Copia para a área de transferência.
+      ClipboardContent conteudo = new ClipboardContent();
+      conteudo.putString(matricula);
+      Clipboard.getSystemClipboard().setContent(conteudo);
+
+      // Mostra o label de "Copiado".
+      lbCopiado.setVisible(true);
+    } catch (Exception ignored) {}
   }
 
   // Métodos para navegação entre telas

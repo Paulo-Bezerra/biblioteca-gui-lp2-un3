@@ -13,9 +13,13 @@ import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import static javafx.scene.input.KeyCode.ENTER;
 
@@ -29,6 +33,9 @@ public class LivrosController {
 
   @FXML
   private Button btRemover;
+
+  @FXML
+  private Label lbCopiado;
 
   @FXML
   private ListView<LivroDTO> lvLivros;
@@ -76,6 +83,28 @@ public class LivrosController {
     List<LivroDTO> livros = OperacoesLivros.listarLivros();
     livros.sort(Comparator.comparing(LivroDTO::titulo));
     lvLivros.getItems().setAll(livros);
+  }
+
+  @FXML
+  private void copiarIsbn(MouseEvent mouse) {
+    lbCopiado.setVisible(false);
+
+    // Verifica se o botão direito do mouse foi pressionado.
+    if (!mouse.isSecondaryButtonDown()) return;
+
+    try {
+      // Obtém o isbn do item selecionado.
+      String isbn = lvLivros.getSelectionModel().getSelectedItem().isbn();
+
+      // Copia para a área de transferência.
+      ClipboardContent conteudo = new ClipboardContent();
+      conteudo.putString(isbn);
+      Clipboard.getSystemClipboard().setContent(conteudo);
+
+      // Mostra o label de "Copiado".
+      lbCopiado.setVisible(true);
+
+    } catch (Exception ignored) {}
   }
 
   // Métodos para navegação entre telas

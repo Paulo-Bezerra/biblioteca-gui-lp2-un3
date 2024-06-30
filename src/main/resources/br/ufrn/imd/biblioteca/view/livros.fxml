@@ -95,24 +95,38 @@
                      </VBox.margin>
                   </HBox>
                   <HBox>
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#cadastrarLivro" text="CADASTRAR" />
-                        <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" onAction="#mostrarDetalhes" text="DETALHES">
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="btRemover" disable="true" mnemonicParsing="false" onAction="#removerLivro" text="REMOVER" />
-                     </children>
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
+                     <children>
+                        <HBox HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#cadastrarLivro" text="CADASTRAR" />
+                              <Button fx:id="btDetalhes" disable="true" mnemonicParsing="false" onAction="#mostrarDetalhes" text="DETALHES">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btRemover" disable="true" mnemonicParsing="false" onAction="#removerLivro" text="REMOVER" />
+                              <VBox alignment="BOTTOM_RIGHT" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="lbCopiado" text="Copiado!" textFill="#44a525" visible="false" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
                   </HBox>
-                  <ListView fx:id="lvLivros" maxHeight="350.0">
+                  <ListView fx:id="lvLivros" maxHeight="350.0" onMousePressed="#copiarIsbn">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </ListView>
+                  <Label text="Clique com o botão direito para copiar o ISBN.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
