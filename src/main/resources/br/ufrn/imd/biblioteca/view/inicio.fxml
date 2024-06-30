@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -60,31 +61,43 @@
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></Label>
-            <Label fx:id="lbNumUsuarios" text="Nº de usuários: 0">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 0">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="lbNumEmprestimos" text="Nº de empréstimos: 0">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 0">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
+            <HBox alignment="TOP_CENTER" fillHeight="false">
+               <children>
+                  <VBox fillWidth="false">
+                     <children>
+                        <Label fx:id="lbNumUsuarios" text="Nº de usuários: 0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbNumEmprestimos" text="Nº de empréstimos: 0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
          <BorderPane.margin>
             <Insets />
