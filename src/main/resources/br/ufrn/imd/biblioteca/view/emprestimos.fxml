@@ -60,7 +60,7 @@
                   </ImageView>
                   <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/livro-de-mao-48.png" />
+                        <Image url="@../images/emprestimo-48x48.png" />
                      </image>
                   </ImageView>
                   <Label text="Empréstimos">
@@ -102,7 +102,7 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <Label text="Pesqusar por:">
+                        <Label text="Pesquisar por:">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>

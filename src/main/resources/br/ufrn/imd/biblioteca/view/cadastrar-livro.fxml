@@ -10,14 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.biblioteca.controller.CadastrarLivroController">
    <children>
           <VBox alignment="TOP_CENTER" minWidth="300.0">
               <children>
                   <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                       <image>
-                          <Image url="@../images/book-48.png" />
+                          <Image url="@../images/livro-48x48.png" />
                       </image>
                       <VBox.margin>
                           <Insets />

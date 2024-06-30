@@ -13,8 +13,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class App extends Application {
+  // Recupera o ícone padrão.
+  public static final Image icone = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/App-64x64.png")));
   // Declara um scene para manipular a troca de telas.
   private static Scene scene;
+
 
   // Inicializa o programa e exibe a tela de login.
   @SuppressWarnings("exports")
@@ -24,7 +27,7 @@ public class App extends Application {
     stage.setMinWidth(450);
     stage.setMinHeight(560);
     stage.setTitle("Biblioteca do IMD");
-    stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/App-256.png"))));
+    stage.getIcons().add(icone);
 
     // Inicializa o programa com a tela de login.
     scene = new Scene(carregarFXML("login"));

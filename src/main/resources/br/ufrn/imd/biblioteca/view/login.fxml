@@ -16,9 +16,9 @@
   <children>
     <VBox alignment="TOP_CENTER" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0" styleClass="vbox">
       <children>
-        <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="48.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../images/login/login_open_book-50x50.png" />
+            <Image url="@../images/metropole-200x48.png" />
           </image>
           <VBox.margin>
             <Insets bottom="10.0" top="20.0" />

@@ -58,7 +58,7 @@
                   </ImageView>
                   <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/usuario-48.png" />
+                        <Image url="@../images/usuario-48x48.png" />
                      </image>
                   </ImageView>
                   <Label text="Usuários">

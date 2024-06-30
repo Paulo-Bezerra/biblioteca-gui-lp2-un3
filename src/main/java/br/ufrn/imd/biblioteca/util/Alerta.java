@@ -1,5 +1,6 @@
 package br.ufrn.imd.biblioteca.util;
 
+import br.ufrn.imd.biblioteca.App;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 public class Alerta {
   // Define a imagem a ser usada como icone nos alertas.
-  private static final Image icone = new Image(Objects.requireNonNull(Alerta.class.getResourceAsStream("/br/ufrn/imd/biblioteca/images/App-256.png")));
+  private static final Image icone = App.icone;
 
   // Retorna um alerta do tipo passado.
   private static Alert criarAlerta(String titulo, String mensagem, Alert.AlertType tipo) {
