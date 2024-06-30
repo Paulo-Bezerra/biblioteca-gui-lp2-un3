@@ -154,6 +154,11 @@ public class CadastrarUsuarioController {
       Alerta.exibirAviso("Cadastro", "Preencha todos os campos!");
       return;
     }
+
+    if (OperacoesUsuarios.loginExiste(tfLogin.getText())) {
+      Alerta.exibirErro("Cadastro", "O usuário \"" + tfLogin.getText() + "\" já está em uso.\nUtilize outro usuário!");
+      return;
+    }
     boolean cadastrou = OperacoesUsuarios.cadastrarBiliotecario(
       tfNome.getText(),
       tfCPF.getText(),

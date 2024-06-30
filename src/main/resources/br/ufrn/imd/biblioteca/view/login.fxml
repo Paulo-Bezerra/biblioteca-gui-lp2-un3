@@ -44,7 +44,7 @@
                 <Insets bottom="5.0" left="20.0" />
               </VBox.margin>
             </Label>
-            <TextField fx:id="tfLogin" styleClass="text-field" text="admin">
+            <TextField fx:id="tfLogin" promptText="Digite seu usuário." styleClass="text-field">
               <VBox.margin>
                 <Insets left="20.0" right="20.0" />
               </VBox.margin>
@@ -63,7 +63,7 @@
                 <Insets bottom="5.0" left="20.0" top="20.0" />
               </VBox.margin>
             </Label>
-            <PasswordField fx:id="pfSenha" text="admin123">
+            <PasswordField fx:id="pfSenha" promptText="Digite sua senha.">
               <VBox.margin>
                 <Insets left="20.0" right="20.0" />
               </VBox.margin>

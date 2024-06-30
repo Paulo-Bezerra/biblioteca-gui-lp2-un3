@@ -3,6 +3,8 @@ package br.ufrn.imd.biblioteca.controller;
 import java.io.IOException;
 
 import br.ufrn.imd.biblioteca.App;
+import br.ufrn.imd.biblioteca.model.Usuario;
+import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
@@ -22,13 +24,22 @@ public class LoginController {
   // Método chamado ao tentar autenticar
   @FXML
   private void autenticar() throws IOException {
-    lbInvalida.setVisible(false);
+    lbInvalida.setVisible(true);
+    if (tfLogin.getText().isEmpty()) {
+      lbInvalida.setText("Preencha o campo de usuário!");
+      return;
+    }
+
+    if (pfSenha.getText().isEmpty()) {
+      lbInvalida.setText("Preencha o campo de senha!");
+      return;
+    }
 
     // Verifica se o login e senha correspondem ao esperado.
-    if (tfLogin.getText().equals("admin") && pfSenha.getText().equals("admin123")) {
+    if (OperacoesUsuarios.autenticar(tfLogin.getText(), pfSenha.getText())) {
       App.trocarTela("inicio"); // Troca para a tela inicial se a autenticação for bem-sucedida.
     } else {
-      lbInvalida.setVisible(true); // Exibe mensagem de erro se a autenticação falhar.
+      lbInvalida.setText("Credenciais inválidas."); // Exibe mensagem de erro se a autenticação falhar.
     }
   }
 }

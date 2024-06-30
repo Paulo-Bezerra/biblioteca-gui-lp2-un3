@@ -33,8 +33,18 @@ public class OperacoesUsuarios {
 
   // Cria, valida e cadastra um bibliotecário. Retorna true se bem-sucedido.
   public static boolean cadastrarBiliotecario(String nome, String cpf, String matricula, LocalDate dataNascimento, String login, String senha) {
+    if (loginExiste(login)) return false;
     Bibliotecario bibliotecario = new Bibliotecario(nome, cpf, matricula, dataNascimento, login, senha);
     return bibliotecario.validar() && cadastarUsuario(bibliotecario);
+  }
+
+  public static boolean loginExiste(String login) {
+    for (Usuario u : getUR().getUsuarios()) {
+      if (u instanceof Bibliotecario && ((Bibliotecario) u).getLogin().equals(login)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   // Cadastra um usuário no repositório. Retorna true se bem-sucedido.
@@ -64,5 +74,18 @@ public class OperacoesUsuarios {
 
   public static Usuario getUsuario(String matricula) {
     return getUR().getUsuario(matricula);
+  }
+
+  public static boolean autenticar(String login, String senha) {
+    boolean encontrouLogin;
+    for (Usuario u : getUR().getUsuarios()) {
+      if (u instanceof Bibliotecario) {
+        encontrouLogin = ((Bibliotecario) u).getLogin().equals(login);
+        if (encontrouLogin) {
+          return ((Bibliotecario) u).getSenha().equals(senha);
+        }
+      }
+    }
+    return false;
   }
 }
