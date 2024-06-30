@@ -8,9 +8,12 @@ import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.FiltroPesquisa;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.util.*;
+
+import static javafx.scene.input.KeyCode.ENTER;
 
 public class EmprestimosController {
   private static FiltroPesquisa filtroPesquisa = FiltroPesquisa.MATRICULA;
@@ -57,7 +60,6 @@ public class EmprestimosController {
 
   @FXML
   private void atualizarFiltroPesquisa(Toggle novoValor) {
-    if (novoValor == null) return;
     filtroPesquisa = (novoValor == rbMatricula) ? FiltroPesquisa.MATRICULA: FiltroPesquisa.ISBN;
     tfBusca.setPromptText("Buscar por " + filtroPesquisa.getDescricao() + ".");
   }
@@ -65,28 +67,30 @@ public class EmprestimosController {
   // Lista todos os emprestimos ativos e exibe na ListView
   @FXML
   private void listarEmprestimos() {
-    if (listaEmprestimos.isEmpty()) {
-      listaEmprestimos = OperacoesEmprestimos.listarEmprestimos();
-    }
+    if (listaEmprestimos.isEmpty()) listaEmprestimos = OperacoesEmprestimos.listarEmprestimos();
+
     lvEmprestimos.getItems().setAll(listaEmprestimos);
   }
 
   @FXML
   private void listarEmprestimosAtrasados() {
-    if (listaAtrasos.isEmpty()) {
-      listaAtrasos = OperacoesEmprestimos.listarEmprestimosAtrados();
-    }
+    if (listaAtrasos.isEmpty()) listaAtrasos = OperacoesEmprestimos.listarEmprestimosAtrados();
+
     lvEmprestimos.getItems().setAll(listaAtrasos);
   }
 
   @FXML
+  private void buscarComEnter(KeyEvent tecla) {
+    if (tecla.getCode() == ENTER) buscarEmprestimos();
+  }
+
+  @FXML
   private void buscarEmprestimos() {
-    if (tfBusca.getText().isEmpty()) {
-      return;
-    }
+    if (tfBusca.getText().isEmpty()) return;
+
     switch (filtroPesquisa) {
-      case MATRICULA -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosAtradosPorMatricula(tfBusca.getText()));
-      case ISBN -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosAtradosPorIsbn(tfBusca.getText()));
+      case MATRICULA -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosPorMatricula(tfBusca.getText().trim()));
+      case ISBN -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosPorIsbn(tfBusca.getText().trim()));
     }
   }
 

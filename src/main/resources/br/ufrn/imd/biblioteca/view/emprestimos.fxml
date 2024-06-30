@@ -85,7 +85,7 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" promptText="Buscar por matrícula." HBox.hgrow="ALWAYS">
+                        <TextField fx:id="tfBusca" minHeight="25.0" minWidth="160.0" onKeyReleased="#buscarComEnter" promptText="Buscar por matrícula." HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
