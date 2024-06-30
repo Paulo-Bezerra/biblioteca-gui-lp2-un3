@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class App extends Application {
   // Recupera o ícone padrão.
-  public static final Image icone = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/App-64x64.png")));
+  public static final Image icone = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/app-64x64.png")));
   // Declara um scene para manipular a troca de telas.
   private static Scene scene;
 

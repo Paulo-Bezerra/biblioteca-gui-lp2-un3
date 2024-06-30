@@ -13,7 +13,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="116.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="29.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/ufrn-100x29.png" />
                </image>
@@ -40,7 +40,7 @@
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="48.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/metropole-200x48.png" />
                </image>
@@ -48,17 +48,43 @@
                   <Insets />
                </VBox.margin>
             </ImageView>
+            <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/inicio-48x48.png" />
+               </image>
+            </ImageView>
             <Label text="Início">
                <font>
                   <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="10.0" />
                </VBox.margin></Label>
-            <Label fx:id="lbNumUsuarios" text="Nº de usuários: 0" />
-            <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 0" />
-            <Label fx:id="lbNumEmprestimos" text="Nº de empréstimos: 0" />
-            <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 0" />
+            <Label fx:id="lbNumUsuarios" text="Nº de usuários: 0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="lbNumLivros" text="Tamanho do acervo de livros: 0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="lbNumEmprestimos" text="Nº de empréstimos: 0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="lbNumAtrasos" text="Nº  de empréstimos em atraso: 0">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
          </children>
          <BorderPane.margin>
             <Insets />
