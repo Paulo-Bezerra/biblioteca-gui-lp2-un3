@@ -51,5 +51,5 @@ public class InicioController {
     lbNumEmprestimos.setText("Nº de empréstimo: " + OperacoesEmprestimos.quantidadeEmprestimos());
     lbNumAtrasos.setText("Nº  de empréstimos em atraso: " + OperacoesEmprestimos.quantidadeEmprestimosAtrados());
   }
-  
+
 }

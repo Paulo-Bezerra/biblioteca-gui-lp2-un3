@@ -59,11 +59,11 @@ public class CadastrarLivroController {
   @FXML
   private boolean camposLivroVazios() {
     return tfTitulo.getText().isEmpty()
-           || tfAutor.getText().isEmpty()
-           || tfAssunto.getText().isEmpty()
-           || tfISBN.getText().isEmpty()
-           || tfAno.getText().isEmpty()
-           || tfEstoque.getText().isEmpty();
+      || tfAutor.getText().isEmpty()
+      || tfAssunto.getText().isEmpty()
+      || tfISBN.getText().isEmpty()
+      || tfAno.getText().isEmpty()
+      || tfEstoque.getText().isEmpty();
   }
 
   // Volta para a tela de livros.

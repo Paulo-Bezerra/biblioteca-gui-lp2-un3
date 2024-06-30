@@ -5,7 +5,6 @@ import br.ufrn.imd.biblioteca.dto.LivroDTO;
 import br.ufrn.imd.biblioteca.model.Livro;
 import br.ufrn.imd.biblioteca.repository.EmprestimoRepository;
 import br.ufrn.imd.biblioteca.repository.LivroRepository;
-import br.ufrn.imd.biblioteca.util.Validacao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +14,13 @@ public class OperacoesLivros {
   private static LivroRepository getLR() {
     return BancoDAO.getInstance().getLR();
   }
+
   private static EmprestimoRepository getER() {
     return BancoDAO.getInstance().getER();
   }
 
   // Cria, valida e cadastra um livro. Retorna true se bem-sucedido.
-  public static boolean cadastrarLivro(String titulo, String autor, String assunto, String isbn,  String ano, String estoque) {
+  public static boolean cadastrarLivro(String titulo, String autor, String assunto, String isbn, String ano, String estoque) {
     try { // Tennta converter para inteiro, false se não conseguir.
       Livro livro = new Livro(titulo, autor, assunto, isbn, Integer.parseInt(ano), Integer.parseInt(estoque));
       return livro.validar() && getLR().cadastrarLivro(livro);

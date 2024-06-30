@@ -181,9 +181,9 @@ public class CadastrarUsuarioController {
   @FXML
   private boolean camposUsuarioVazios() {
     return tfNome.getText().isEmpty()
-           || tfCPF.getText().isEmpty()
-           || tfMatricula.getText().isEmpty()
-           || dtNascimento.getValue() == null;
+      || tfCPF.getText().isEmpty()
+      || tfMatricula.getText().isEmpty()
+      || dtNascimento.getValue() == null;
   }
 
   // Volta para a tela de usuários.

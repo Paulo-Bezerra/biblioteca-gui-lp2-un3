@@ -1,10 +1,7 @@
 package br.ufrn.imd.biblioteca.controller;
 
 import br.ufrn.imd.biblioteca.App;
-import br.ufrn.imd.biblioteca.dto.EmprestimoDTO;
-import br.ufrn.imd.biblioteca.model.Emprestimo;
 import br.ufrn.imd.biblioteca.service.OperacoesEmprestimos;
-import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
 import br.ufrn.imd.biblioteca.util.Validacao;

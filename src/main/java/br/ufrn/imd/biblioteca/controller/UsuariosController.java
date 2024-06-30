@@ -22,7 +22,6 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Popup;
 
 import static javafx.scene.input.KeyCode.*;
 
@@ -107,7 +106,8 @@ public class UsuariosController {
 
       // Mostra o label de "Copiado".
       lbCopiado.setVisible(true);
-    } catch (Exception ignored) {}
+    } catch (Exception ignored) {
+    }
   }
 
   // Métodos para navegação entre telas

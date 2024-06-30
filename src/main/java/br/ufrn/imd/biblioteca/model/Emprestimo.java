@@ -78,7 +78,7 @@ public class Emprestimo implements Serializable, IValidarClasse {
   }
 
   private boolean validarDatas() {
-    return dataEmprestimo != null && dataDevolucao != null  && !dataEmprestimo.isBefore(dataDevolucao);
+    return dataEmprestimo != null && dataDevolucao != null && !dataEmprestimo.isBefore(dataDevolucao);
   }
 
   // Sobrescreve equals para comparar empréstimos pela matrícula e o ISBN.

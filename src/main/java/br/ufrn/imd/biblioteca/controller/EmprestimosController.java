@@ -2,7 +2,6 @@ package br.ufrn.imd.biblioteca.controller;
 
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.dto.EmprestimoDTO;
-import br.ufrn.imd.biblioteca.model.Emprestimo;
 import br.ufrn.imd.biblioteca.service.OperacoesEmprestimos;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.FiltroPesquisa;
@@ -60,7 +59,7 @@ public class EmprestimosController {
 
   @FXML
   private void atualizarFiltroPesquisa(Toggle novoValor) {
-    filtroPesquisa = (novoValor == rbMatricula) ? FiltroPesquisa.MATRICULA: FiltroPesquisa.ISBN;
+    filtroPesquisa = (novoValor == rbMatricula) ? FiltroPesquisa.MATRICULA : FiltroPesquisa.ISBN;
     tfBusca.setPromptText("Buscar por " + filtroPesquisa.getDescricao() + ".");
   }
 
@@ -89,8 +88,10 @@ public class EmprestimosController {
     if (tfBusca.getText().isEmpty()) return;
 
     switch (filtroPesquisa) {
-      case MATRICULA -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosPorMatricula(tfBusca.getText().trim()));
-      case ISBN -> lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosPorIsbn(tfBusca.getText().trim()));
+      case MATRICULA ->
+        lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosPorMatricula(tfBusca.getText().trim()));
+      case ISBN ->
+        lvEmprestimos.getItems().setAll(OperacoesEmprestimos.listarEmprestimosPorIsbn(tfBusca.getText().trim()));
     }
   }
 
@@ -103,8 +104,8 @@ public class EmprestimosController {
   @FXML
   private void removerEmprestimo() {
     EmprestimoDTO emprestimo = lvEmprestimos.getSelectionModel().getSelectedItem();
-    if (emprestimo != null && Alerta.exibirConfirmacao("Devolução", "Devolver: " + emprestimo.titulo() + 
-        "\nData do empréstimo: " + emprestimo.dataEmprestimo() + "\nPrazo: " + emprestimo.dataDevolucao())) {
+    if (emprestimo != null && Alerta.exibirConfirmacao("Devolução", "Devolver: " + emprestimo.titulo() +
+      "\nData do empréstimo: " + emprestimo.dataEmprestimo() + "\nPrazo: " + emprestimo.dataDevolucao())) {
       if (OperacoesEmprestimos.removerEmprestimo(emprestimo.matricula(), emprestimo.isbn())) {
         lvEmprestimos.getItems().remove(emprestimo);
         listaEmprestimos.clear();

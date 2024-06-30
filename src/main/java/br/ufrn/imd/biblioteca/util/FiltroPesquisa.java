@@ -15,6 +15,7 @@ public enum FiltroPesquisa {
   public int getValor() {
     return valor;
   }
+
   public String getDescricao() {
     return descricao;
   }

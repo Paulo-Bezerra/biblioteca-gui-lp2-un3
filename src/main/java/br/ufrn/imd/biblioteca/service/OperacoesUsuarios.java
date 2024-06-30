@@ -51,6 +51,7 @@ public class OperacoesUsuarios {
   private static boolean cadastarUsuario(Usuario usuario) {
     return getUR().cadastrarUsuario(usuario);
   }
+
   private static EmprestimoRepository getER() {
     return BancoDAO.getInstance().getER();
   }
@@ -69,7 +70,7 @@ public class OperacoesUsuarios {
   }
 
   public static int quantidadeUsuarios() {
-      return getUR().quantidadeUsuarios();
+    return getUR().quantidadeUsuarios();
   }
 
   public static Usuario getUsuario(String matricula) {

@@ -142,7 +142,6 @@ public class EmprestimoRepository implements Serializable {
   }
 
 
-
   // Retorna o número de empréstimos cadastrados.
   public int quantidadeEmprestimos() {
     return ER.size();

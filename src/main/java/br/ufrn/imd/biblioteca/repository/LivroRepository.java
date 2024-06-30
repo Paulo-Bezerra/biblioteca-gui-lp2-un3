@@ -62,6 +62,7 @@ public class LivroRepository implements Serializable {
   public boolean existeLivro(Livro livro) {
     return existeLivro(livro.getIsbn());
   }
+
   // Verifica se existe um livro com o ISBN fornecido.
   public boolean existeLivro(String isbn) {
     return isbn_LR.containsKey(isbn);

@@ -102,9 +102,11 @@ public class Livro implements Serializable, IValidarClasse {
   private boolean validarAutor() {
     return autor != null && !autor.isEmpty();
   }
+
   private boolean validarAssunto() {
     return assunto != null && !assunto.isEmpty();
   }
+
   private boolean validarIsbn() {
     return isbn != null && !isbn.isEmpty() && Validacao.strNumerica(isbn);
   }

@@ -104,7 +104,8 @@ public class LivrosController {
       // Mostra o label de "Copiado".
       lbCopiado.setVisible(true);
 
-    } catch (Exception ignored) {}
+    } catch (Exception ignored) {
+    }
   }
 
   // Métodos para navegação entre telas

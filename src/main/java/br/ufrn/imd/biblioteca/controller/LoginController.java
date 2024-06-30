@@ -3,7 +3,6 @@ package br.ufrn.imd.biblioteca.controller;
 import java.io.IOException;
 
 import br.ufrn.imd.biblioteca.App;
-import br.ufrn.imd.biblioteca.model.Usuario;
 import br.ufrn.imd.biblioteca.service.OperacoesUsuarios;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
