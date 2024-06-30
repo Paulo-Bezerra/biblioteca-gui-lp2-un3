@@ -17,6 +17,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+
+import static javafx.scene.input.KeyCode.*;
 
 public class UsuariosController {
   // Elementos da interface gráfica.
@@ -47,6 +50,12 @@ public class UsuariosController {
       }
     });
   }
+
+  @FXML
+  private void buscarComEnter(KeyEvent tecla) {
+    if (tecla.getCode() == ENTER) buscarUsuario();
+  }
+
 
   // Filtra usuários pelo nome digitado no TextField de busca
   @FXML

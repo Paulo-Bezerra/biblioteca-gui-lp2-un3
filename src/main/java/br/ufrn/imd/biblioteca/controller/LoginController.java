@@ -9,6 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.input.KeyEvent;
+
+import static javafx.scene.input.KeyCode.ENTER;
 
 public class LoginController {
   // Elementos da interface gráfica.
@@ -22,6 +25,7 @@ public class LoginController {
   private PasswordField pfSenha;
 
   // Método chamado ao tentar autenticar
+
   @FXML
   private void autenticar() throws IOException {
     if (tfLogin.getText().isEmpty() && pfSenha.getText().isEmpty()) {
@@ -45,5 +49,10 @@ public class LoginController {
     } else {
       lbInvalida.setText("Credenciais inválidas."); // Exibe mensagem de erro se a autenticação falhar.
     }
+  }
+
+  @FXML
+  private void autenticarComEnter(KeyEvent tecla) throws IOException {
+    if (tecla.getCode() == ENTER) autenticar();
   }
 }

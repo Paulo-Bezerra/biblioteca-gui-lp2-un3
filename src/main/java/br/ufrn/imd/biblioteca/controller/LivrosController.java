@@ -8,7 +8,6 @@ import java.util.List;
 import br.ufrn.imd.biblioteca.App;
 import br.ufrn.imd.biblioteca.dto.LivroDTO;
 import br.ufrn.imd.biblioteca.model.Livro;
-import br.ufrn.imd.biblioteca.service.OperacoesEmprestimos;
 import br.ufrn.imd.biblioteca.service.OperacoesLivros;
 import br.ufrn.imd.biblioteca.util.Alerta;
 import br.ufrn.imd.biblioteca.util.Tratamento;
@@ -16,6 +15,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+
+import static javafx.scene.input.KeyCode.ENTER;
 
 public class LivrosController {
   // Elementos da interface gráfica.
@@ -45,6 +47,11 @@ public class LivrosController {
         mostrarDetalhes();
       }
     });
+  }
+
+  @FXML
+  private void buscarComEnter(KeyEvent tecla) {
+    if (tecla.getCode() == ENTER) buscarLivro();
   }
 
   // Filtra o livro pelo isbn digitado no TextField de busca
