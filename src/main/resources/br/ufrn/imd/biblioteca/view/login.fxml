@@ -33,7 +33,10 @@
           <children>
                   <HBox alignment="CENTER" fillHeight="false">
                      <children>
-                        <Label fx:id="lbInvalida" alignment="CENTER" text="Credenciais inválidas." textFill="#eb0537" visible="false" />
+                        <Label fx:id="lbInvalida" alignment="CENTER" textFill="#eb0537">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
             <Label text="Usuário:">
@@ -41,7 +44,7 @@
                 <Font size="18.0" />
               </font>
               <VBox.margin>
-                <Insets bottom="5.0" left="20.0" />
+                <Insets bottom="5.0" left="20.0" top="5.0" />
               </VBox.margin>
             </Label>
             <TextField fx:id="tfLogin" promptText="Digite seu usuário." styleClass="text-field">

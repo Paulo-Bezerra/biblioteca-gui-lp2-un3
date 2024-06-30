@@ -24,7 +24,11 @@ public class LoginController {
   // Método chamado ao tentar autenticar
   @FXML
   private void autenticar() throws IOException {
-    lbInvalida.setVisible(true);
+    if (tfLogin.getText().isEmpty() && pfSenha.getText().isEmpty()) {
+      lbInvalida.setText("Preencha todos os campos!");
+      return;
+    }
+
     if (tfLogin.getText().isEmpty()) {
       lbInvalida.setText("Preencha o campo de usuário!");
       return;
