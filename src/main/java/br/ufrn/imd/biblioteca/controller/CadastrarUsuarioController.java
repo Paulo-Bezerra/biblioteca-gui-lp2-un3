@@ -79,8 +79,12 @@ public class CadastrarUsuarioController {
           } catch (DateTimeParseException e) {
             // Se houve erro ao converter a data limpa o DataPicker.
             dtNascimento.getEditor().clear();
+
             // Retorna no terminal o formato aceito.
-            System.out.println("Data inválida: " + dataString + "\n Usar formato: \"dd/MM/yyyy\"");
+            System.out.println("Data inválida: " + dataString + "\nUsar formato: \"dd/mm/aaaa\"");
+            
+            // Alerta com o formato aceito.
+            Alerta.exibirAviso("Cadastro", "Data inválida: \"" + dataString + "\"!\nUsar formato: \"dd/mm/aaaa\"");
           }
         }
       }
