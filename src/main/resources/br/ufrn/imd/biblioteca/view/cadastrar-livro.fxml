@@ -33,37 +33,37 @@
                   <VBox maxWidth="600.0">
                       <children>
                           <Label text="Título:" />
-                          <TextField fx:id="tfTitulo" promptText="João Silva" />
+                          <TextField fx:id="tfTitulo" />
                           <Label text="Autor:">
                               <VBox.margin>
                                   <Insets top="10.0" />
                               </VBox.margin>
                           </Label>
-                          <TextField fx:id="tfAutor" promptText="José de Alencar" />
+                          <TextField fx:id="tfAutor" />
                           <Label layoutX="10.0" layoutY="69.0" text="Assunto:">
                               <VBox.margin>
                                   <Insets top="10.0" />
                               </VBox.margin>
                           </Label>
-                          <TextField fx:id="tfAssunto" layoutX="10.0" layoutY="86.0" promptText="Programacao" />
+                          <TextField fx:id="tfAssunto" layoutX="10.0" layoutY="86.0" />
                           <Label text="ISBN (Apenas números):">
                               <VBox.margin>
                                   <Insets top="10.0" />
                               </VBox.margin>
                           </Label>
-                  <TextField fx:id="tfISBN" promptText="123456789" />
+                  <TextField fx:id="tfISBN" />
                           <Label layoutX="30.0" layoutY="191.0" text="Ano de publicação:">
                               <VBox.margin>
                                   <Insets top="10.0" />
                               </VBox.margin>
                           </Label>
-                  <TextField fx:id="tfAno" promptText="2024" />
+                  <TextField fx:id="tfAno" />
                               <Label text="Quantidade em estoque:">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                              <TextField fx:id="tfEstoque" promptText="10" />
+                              <TextField fx:id="tfEstoque" />
                               <BorderPane>
                                   <right>
                                       <Button mnemonicParsing="false" onAction="#cadastraLivro" text="CADASTRAR LIVRO" BorderPane.alignment="CENTER" />

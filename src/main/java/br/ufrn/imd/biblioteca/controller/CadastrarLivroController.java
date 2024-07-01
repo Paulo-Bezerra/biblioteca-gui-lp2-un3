@@ -48,8 +48,8 @@ public class CadastrarLivroController {
     if (cadastrou) {
       Alerta.exibirInformacao("Cadastro", "Livro cadastrado com sucesso!");
 
-      // caso fique melhor limpar os campos depos de cadastrar.
-      // limparCampos();
+      // caso fique melhor limpar os campos depois de cadastrar.
+      limparCampos();
     } else {
       Alerta.exibirErro("Cadastro", "Não foi possivel cadastrar o livro!");
     }

@@ -82,6 +82,8 @@ public class CadastrarEmprestimoController {
 
     if (Tratamento.contemString(saida, "sucesso")) {
       Alerta.exibirInformacao("Cadastro", saida);
+      // caso fique melhor limpar os campos depois de cadastrar.
+      limparCampos();
       return;
     }
 
@@ -101,5 +103,13 @@ public class CadastrarEmprestimoController {
   @FXML
   private void voltar() throws IOException {
     App.trocarTela("emprestimos");
+  }
+
+  // Limpa todos os campos de entrada
+  @FXML
+  private void limparCampos() {
+    tfMatricula.clear();
+    tfIsbn.clear();
+    dtEmprestimo.setValue(null);
   }
 }

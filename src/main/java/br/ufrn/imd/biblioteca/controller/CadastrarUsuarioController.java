@@ -115,7 +115,7 @@ public class CadastrarUsuarioController {
       Alerta.exibirInformacao("Cadastro", "Estundante cadastrado com sucesso!");
 
       // caso fique melhor limpar os campos depos de cadastrar.
-      // limparCampos();
+      limparCampos();
     } else {
       Alerta.exibirErro("Cadastro", "Não foi possivel cadastrar o estudante!");
     }
@@ -141,7 +141,7 @@ public class CadastrarUsuarioController {
       Alerta.exibirInformacao("Cadastro", "Professor cadastrado com sucesso!");
 
       // caso fique melhor limpar os campos depos de cadastrar.
-      // limparCampos();
+      limparCampos();
     } else {
       Alerta.exibirErro("Cadastro", "Não foi possivel cadastrar o professor!");
     }
@@ -171,7 +171,7 @@ public class CadastrarUsuarioController {
       Alerta.exibirInformacao("Cadastro", "Bibliotecário cadastrado com sucesso!");
 
       // caso fique melhor limpar os campos depos de cadastrar.
-      // limparCampos();
+      limparCampos();
     } else {
       Alerta.exibirErro("Cadastro", "Não foi possivel cadastrar o bibliotecário!");
     }

@@ -60,7 +60,7 @@ public class EmprestimosController {
   @FXML
   private void atualizarFiltroPesquisa(Toggle novoValor) {
     filtroPesquisa = (novoValor == rbMatricula) ? FiltroPesquisa.MATRICULA : FiltroPesquisa.ISBN;
-    tfBusca.setPromptText("Buscar por " + filtroPesquisa.getDescricao() + ".");
+    tfBusca.setPromptText("Buscar por " + filtroPesquisa.getDescricao());
   }
 
   // Lista todos os emprestimos ativos e exibe na ListView
