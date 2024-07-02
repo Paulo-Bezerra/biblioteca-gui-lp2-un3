@@ -4,7 +4,7 @@
 
 O código implementa um sistema de gerenciamento de biblioteca que permite a administração de usuários, livros e empréstimos. Ele utiliza o padrão de design Singleton para gerenciar as instâncias dos objetos de dados e persistir as informações em arquivos binários. Além disso, é utilizado o modelo MVC do Spring Boot.
 
-Você pode ver a apresentação das telas do sisctema com a descrição das funcionalidades da interface [aqui](biblioteca_gui.pdf).
+Você pode ver a apresentação das telas do sisctema com a descrição das funcionalidades da interface [aqui](Apresentação.pdf).
 
 ## Instruções de uso
 
