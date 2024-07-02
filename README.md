@@ -4,7 +4,15 @@
 
 O código implementa um sistema de gerenciamento de biblioteca que permite a administração de usuários, livros e empréstimos. Ele utiliza o padrão de design Singleton para gerenciar as instâncias dos objetos de dados e persistir as informações em arquivos binários. Além disso, é utilizado o modelo MVC do Spring Boot.
 
-Ao iniciar o sistema será exigido o login do bibliotecário, que pode ser um bibliotecário cadastrado ou o usuário padrão com as seguintes credenciais: Login: "admin" e Senha: "admin123".
+Você pode ver a apresentação das telas do sisctema com a descrição das funcionalidades da interface [aqui](biblioteca_gui.pdf).
+
+## Instruções de uso
+
+Ao iniciar o sistema será exigido o usuário do bibliotecário, que pode ser um bibliotecário cadastrado ou o usuário padrão com as seguintes credenciais: 
+```
+Usuário: admin
+Senha: admin123
+```
 
 ## Estrutura do Projeto
 
