@@ -8,6 +8,13 @@ Você pode ver a apresentação das telas do sisctema com a descrição das func
 
 ## Instruções de uso
 
+Caso ja tenha o Apache Maven instalado e configurado, basta execultar o seguinte comando na raiz do projeto:
+```
+mvn clean javafx:run
+```
+
+Ou você pode usar uma IDE para compilar execultar o código.
+
 Ao iniciar o sistema será exigido o usuário do bibliotecário, que pode ser um bibliotecário cadastrado ou o usuário padrão com as seguintes credenciais: 
 ```
 Usuário: admin
